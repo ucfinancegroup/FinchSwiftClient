@@ -1,6 +1,6 @@
 # PlaidAPI
 
-All URIs are relative to *http://localhost:8888*
+All URIs are relative to *https://localhost:8888*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
