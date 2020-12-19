@@ -31,11 +31,8 @@ open class PlaidAPI {
      to request link token for PlaidLink
      - POST /api/plaid/link_token
      - API Key:
-       - type: apiKey sid 
+       - type: apiKey finch-sid 
        - name: sidCookie
-     - API Key:
-       - type: apiKey user_id 
-       - name: userIdCookie
      - returns: RequestBuilder<LinkTokenCreateResponse> 
      */
     open class func plaidLinkWithRequestBuilder() -> RequestBuilder<LinkTokenCreateResponse> {
@@ -72,11 +69,8 @@ open class PlaidAPI {
      For after a user does PlaidLink thru client
      - POST /api/plaid/public_token_exchange
      - API Key:
-       - type: apiKey sid 
+       - type: apiKey finch-sid 
        - name: sidCookie
-     - API Key:
-       - type: apiKey user_id 
-       - name: userIdCookie
      - parameter publicTokenExchangeRequest: (body)  
      - returns: RequestBuilder<ItemIdResponse> 
      */
@@ -90,6 +84,46 @@ open class PlaidAPI {
         let requestBuilder: RequestBuilder<ItemIdResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Where Plaid sends updates about items, transactions, etc https://plaid.com/docs/api/webhooks/
+     
+     - parameter plaidVerification: (header)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func plaidWebhook(plaidVerification: PlaidJWT? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        plaidWebhookWithRequestBuilder(plaidVerification: plaidVerification).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Where Plaid sends updates about items, transactions, etc https://plaid.com/docs/api/webhooks/
+     - POST /api/plaid/webhook
+     - parameter plaidVerification: (header)  (optional)
+     - returns: RequestBuilder<Void> 
+     */
+    open class func plaidWebhookWithRequestBuilder(plaidVerification: PlaidJWT? = nil) -> RequestBuilder<Void> {
+        let path = "/api/plaid/webhook"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+        let nillableHeaders: [String: Any?] = [
+            "Plaid-Verification": plaidVerification?.encodeToJSON()
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
 
 }

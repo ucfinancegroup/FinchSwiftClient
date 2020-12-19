@@ -1,29 +1,29 @@
-# UserAPI
+# InsightsAPI
 
 All URIs are relative to *https://localhost:8888*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**loginUser**](UserAPI.md#loginuser) | **POST** /api/login | Log in a user
-[**signupUser**](UserAPI.md#signupuser) | **POST** /api/signup | Sign up a user
+[**dismissInsight**](InsightsAPI.md#dismissinsight) | **PUT** /api/insight/{id}/dismiss | Dismiss an insight
+[**getInsights**](InsightsAPI.md#getinsights) | **GET** /api/insights | Get all a user&#39;s (non-dismissed) insights
 
 
-# **loginUser**
+# **dismissInsight**
 ```swift
-    open class func loginUser(loginPayload: LoginPayload, completion: @escaping (_ data: User?, _ error: Error?) -> Void)
+    open class func dismissInsight(id: Int, completion: @escaping (_ data: Insight?, _ error: Error?) -> Void)
 ```
 
-Log in a user
+Dismiss an insight
 
 ### Example 
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let loginPayload = LoginPayload(email: "email_example", password: "password_example") // LoginPayload | 
+let id = 987 // Int | Numeric ID of the Insight to dismiss
 
-// Log in a user
-UserAPI.loginUser(loginPayload: loginPayload) { (response, error) in
+// Dismiss an insight
+InsightsAPI.dismissInsight(id: id) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -39,39 +39,38 @@ UserAPI.loginUser(loginPayload: loginPayload) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loginPayload** | [**LoginPayload**](LoginPayload.md) |  | 
+ **id** | **Int** | Numeric ID of the Insight to dismiss | 
 
 ### Return type
 
-[**User**](User.md)
+[**Insight**](Insight.md)
 
 ### Authorization
 
-No authorization required
+[sidCookie](../README.md#sidCookie)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **signupUser**
+# **getInsights**
 ```swift
-    open class func signupUser(signupPayload: SignupPayload, completion: @escaping (_ data: User?, _ error: Error?) -> Void)
+    open class func getInsights(completion: @escaping (_ data: [Insight]?, _ error: Error?) -> Void)
 ```
 
-Sign up a user
+Get all a user's (non-dismissed) insights
 
 ### Example 
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let signupPayload = SignupPayload(email: "email_example", password: "password_example", firstName: "firstName_example", lastName: "lastName_example", income: 123) // SignupPayload | 
 
-// Sign up a user
-UserAPI.signupUser(signupPayload: signupPayload) { (response, error) in
+// Get all a user's (non-dismissed) insights
+InsightsAPI.getInsights() { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -84,22 +83,19 @@ UserAPI.signupUser(signupPayload: signupPayload) { (response, error) in
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **signupPayload** | [**SignupPayload**](SignupPayload.md) |  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**User**](User.md)
+[**[Insight]**](Insight.md)
 
 ### Authorization
 
-No authorization required
+[sidCookie](../README.md#sidCookie)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

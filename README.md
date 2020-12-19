@@ -25,21 +25,64 @@ All URIs are relative to *https://localhost:8888*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*GoalAPI* | [**deleteGoal**](docs/GoalAPI.md#deletegoal) | **DELETE** /api/goal/{id} | Delete one specific goal by id
+*GoalAPI* | [**getGoal**](docs/GoalAPI.md#getgoal) | **GET** /api/goal/{id} | Get one specific goal by id
+*GoalAPI* | [**getGoals**](docs/GoalAPI.md#getgoals) | **GET** /api/goals | Get all of a user&#39;s goals
+*GoalAPI* | [**newGoal**](docs/GoalAPI.md#newgoal) | **POST** /api/goal/new | Creates a new goal for the user
+*GoalAPI* | [**updateGoal**](docs/GoalAPI.md#updategoal) | **PUT** /api/goal/{id} | Update one specific goal by id
+*InsightsAPI* | [**dismissInsight**](docs/InsightsAPI.md#dismissinsight) | **PUT** /api/insight/{id}/dismiss | Dismiss an insight
+*InsightsAPI* | [**getInsights**](docs/InsightsAPI.md#getinsights) | **GET** /api/insights | Get all a user&#39;s (non-dismissed) insights
+*LeaderboardAPI* | [**getLeaderboard**](docs/LeaderboardAPI.md#getleaderboard) | **GET** /api/leaderboard/{type} | Get a leaderboard
 *PlaidAPI* | [**plaidLink**](docs/PlaidAPI.md#plaidlink) | **POST** /api/plaid/link_token | to request link token for PlaidLink
 *PlaidAPI* | [**plaidLinkAccess**](docs/PlaidAPI.md#plaidlinkaccess) | **POST** /api/plaid/public_token_exchange | For after a user does PlaidLink thru client
+*PlaidAPI* | [**plaidWebhook**](docs/PlaidAPI.md#plaidwebhook) | **POST** /api/plaid/webhook | Where Plaid sends updates about items, transactions, etc https://plaid.com/docs/api/webhooks/
+*PlanAPI* | [**deletePlan**](docs/PlanAPI.md#deleteplan) | **DELETE** /api/plan/{id} | Delete one specific plan by id
+*PlanAPI* | [**getPlan**](docs/PlanAPI.md#getplan) | **GET** /api/plan/{id} | Get one specific plan by id
+*PlanAPI* | [**getPlans**](docs/PlanAPI.md#getplans) | **GET** /api/plans | Get all of a user&#39;s plans
+*PlanAPI* | [**newPlan**](docs/PlanAPI.md#newplan) | **POST** /api/plan/new | Creates a new plan for the user
+*PlanAPI* | [**updatePlan**](docs/PlanAPI.md#updateplan) | **PUT** /api/plan/{id} | Update one specific plan by id
+*RecurringAPI* | [**deleteRecurring**](docs/RecurringAPI.md#deleterecurring) | **DELETE** /api/recurring/{id} | Delete one specific recurring by id
+*RecurringAPI* | [**getRecurring**](docs/RecurringAPI.md#getrecurring) | **GET** /api/recurring/{id} | Get one specific recurring by id
+*RecurringAPI* | [**getRecurrings**](docs/RecurringAPI.md#getrecurrings) | **GET** /api/recurrings | Get all of a user&#39;s recurrings
+*RecurringAPI* | [**newRecurring**](docs/RecurringAPI.md#newrecurring) | **POST** /api/recurring/new | Creates a new recurring for the user
+*RecurringAPI* | [**updateRecurring**](docs/RecurringAPI.md#updaterecurring) | **PUT** /api/recurring/{id} | Update one specific recurring by id
+*TimeseriesAPI* | [**getTimeseries**](docs/TimeseriesAPI.md#gettimeseries) | **GET** /api/timeseries | Get a user&#39;s projection timeseries
 *UserAPI* | [**loginUser**](docs/UserAPI.md#loginuser) | **POST** /api/login | Log in a user
 *UserAPI* | [**signupUser**](docs/UserAPI.md#signupuser) | **POST** /api/signup | Sign up a user
+*UsersAPI* | [**registerIOSDevice**](docs/UsersAPI.md#registeriosdevice) | **POST** /api/registerIOSDevice | This route will be called once a user logs in on an iOS device and route body will contain the URL of the iOS device, this will be stored in the User model.
+*UsersAPI* | [**updateUser**](docs/UsersAPI.md#updateuser) | **PUT** /api/update/user | This route receives a payload with requests to change data of a user
+*ValidationAPI* | [**validateUser**](docs/ValidationAPI.md#validateuser) | **POST** /api/validate/user | This route lets our clients perform step-by-step signups.
 
 
 ## Documentation For Models
 
+ - [Allocation](docs/Allocation.md)
  - [ApiError](docs/ApiError.md)
+ - [Asset](docs/Asset.md)
+ - [AssetToPercentMapping](docs/AssetToPercentMapping.md)
+ - [Event](docs/Event.md)
+ - [Goal](docs/Goal.md)
+ - [GoalNewPayload](docs/GoalNewPayload.md)
+ - [Insight](docs/Insight.md)
  - [ItemIdResponse](docs/ItemIdResponse.md)
+ - [KnownFinancialProduct](docs/KnownFinancialProduct.md)
+ - [LeaderboardResponse](docs/LeaderboardResponse.md)
  - [LinkTokenCreateResponse](docs/LinkTokenCreateResponse.md)
  - [LoginPayload](docs/LoginPayload.md)
+ - [PlaidJWT](docs/PlaidJWT.md)
+ - [Plan](docs/Plan.md)
+ - [PlanNewPayload](docs/PlanNewPayload.md)
  - [PublicTokenExchangeRequest](docs/PublicTokenExchangeRequest.md)
+ - [Recurring](docs/Recurring.md)
+ - [RecurringNewPayload](docs/RecurringNewPayload.md)
  - [SignupPayload](docs/SignupPayload.md)
- - [SignupResponse](docs/SignupResponse.md)
+ - [TimeInterval](docs/TimeInterval.md)
+ - [TimePeriod](docs/TimePeriod.md)
+ - [TimeSeries](docs/TimeSeries.md)
+ - [Transform](docs/Transform.md)
+ - [UpdateUserRequest](docs/UpdateUserRequest.md)
+ - [User](docs/User.md)
+ - [ValidateUserPayload](docs/ValidateUserPayload.md)
 
 
 ## Documentation For Authorization
@@ -48,13 +91,7 @@ Class | Method | HTTP request | Description
 ## sidCookie
 
 - **Type**: API key
-- **API key parameter name**: sid
-- **Location**: 
-
-## userIdCookie
-
-- **Type**: API key
-- **API key parameter name**: user_id
+- **API key parameter name**: finch-sid
 - **Location**: 
 
 
