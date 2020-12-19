@@ -12,13 +12,13 @@ public struct User: Codable {
 
 
     public var email: String
-    public var location: Any
+    public var location: UserLocation
     public var firstName: String
     public var lastName: String
     public var income: Double?
     public var deviceUrl: String?
 
-    public init(email: String, location: Any, firstName: String, lastName: String, income: Double?, deviceUrl: String?) {
+    public init(email: String, location: UserLocation, firstName: String, lastName: String, income: Double?, deviceUrl: String?) {
         self.email = email
         self.location = location
         self.firstName = firstName

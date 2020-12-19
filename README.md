@@ -35,7 +35,6 @@ Class | Method | HTTP request | Description
 *LeaderboardAPI* | [**getLeaderboard**](docs/LeaderboardAPI.md#getleaderboard) | **GET** /api/leaderboard/{type} | Get a leaderboard
 *PlaidAPI* | [**plaidLink**](docs/PlaidAPI.md#plaidlink) | **POST** /api/plaid/link_token | to request link token for PlaidLink
 *PlaidAPI* | [**plaidLinkAccess**](docs/PlaidAPI.md#plaidlinkaccess) | **POST** /api/plaid/public_token_exchange | For after a user does PlaidLink thru client
-*PlaidAPI* | [**plaidWebhook**](docs/PlaidAPI.md#plaidwebhook) | **POST** /api/plaid/webhook | Where Plaid sends updates about items, transactions, etc https://plaid.com/docs/api/webhooks/
 *PlanAPI* | [**deletePlan**](docs/PlanAPI.md#deleteplan) | **DELETE** /api/plan/{id} | Delete one specific plan by id
 *PlanAPI* | [**getPlan**](docs/PlanAPI.md#getplan) | **GET** /api/plan/{id} | Get one specific plan by id
 *PlanAPI* | [**getPlans**](docs/PlanAPI.md#getplans) | **GET** /api/plans | Get all of a user&#39;s plans
@@ -82,6 +81,7 @@ Class | Method | HTTP request | Description
  - [Transform](docs/Transform.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [User](docs/User.md)
+ - [UserLocation](docs/UserLocation.md)
  - [ValidateUserPayload](docs/ValidateUserPayload.md)
 
 
