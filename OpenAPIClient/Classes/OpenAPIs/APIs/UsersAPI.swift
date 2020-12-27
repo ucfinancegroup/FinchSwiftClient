@@ -29,14 +29,14 @@ open class UsersAPI {
 
     /**
      This route will be called once a user logs in on an iOS device and route body will contain the URL of the iOS device, this will be stored in the User model.
-     - POST /api/registerIOSDevice
+     - POST /registerIOSDevice
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
      - returns: RequestBuilder<ApiError> 
      */
     open class func registerIOSDeviceWithRequestBuilder() -> RequestBuilder<ApiError> {
-        let path = "/api/registerIOSDevice"
+        let path = "/registerIOSDevice"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -67,7 +67,7 @@ open class UsersAPI {
 
     /**
      This route receives a payload with requests to change data of a user
-     - PUT /api/update/user
+     - PUT /update/user
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -75,7 +75,7 @@ open class UsersAPI {
      - returns: RequestBuilder<User> 
      */
     open class func updateUserWithRequestBuilder(updateUserRequest: UpdateUserRequest) -> RequestBuilder<User> {
-        let path = "/api/update/user"
+        let path = "/update/user"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: updateUserRequest)
 

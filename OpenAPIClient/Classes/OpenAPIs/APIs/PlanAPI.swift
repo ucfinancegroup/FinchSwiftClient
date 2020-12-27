@@ -30,7 +30,7 @@ open class PlanAPI {
 
     /**
      Delete one specific plan by id
-     - DELETE /api/plan/{id}
+     - DELETE /plan/{id}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -38,7 +38,7 @@ open class PlanAPI {
      - returns: RequestBuilder<Plan> 
      */
     open class func deletePlanWithRequestBuilder(id: Int) -> RequestBuilder<Plan> {
-        var path = "/api/plan/{id}"
+        var path = "/plan/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -72,7 +72,7 @@ open class PlanAPI {
 
     /**
      Get one specific plan by id
-     - GET /api/plan/{id}
+     - GET /plan/{id}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -80,7 +80,7 @@ open class PlanAPI {
      - returns: RequestBuilder<Plan> 
      */
     open class func getPlanWithRequestBuilder(id: Int) -> RequestBuilder<Plan> {
-        var path = "/api/plan/{id}"
+        var path = "/plan/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -113,14 +113,14 @@ open class PlanAPI {
 
     /**
      Get all of a user's plans
-     - GET /api/plans
+     - GET /plans
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
      - returns: RequestBuilder<[Plan]> 
      */
     open class func getPlansWithRequestBuilder() -> RequestBuilder<[Plan]> {
-        let path = "/api/plans"
+        let path = "/plans"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -151,7 +151,7 @@ open class PlanAPI {
 
     /**
      Creates a new plan for the user
-     - POST /api/plan/new
+     - POST /plan/new
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -159,7 +159,7 @@ open class PlanAPI {
      - returns: RequestBuilder<Plan> 
      */
     open class func newPlanWithRequestBuilder(planNewPayload: PlanNewPayload) -> RequestBuilder<Plan> {
-        let path = "/api/plan/new"
+        let path = "/plan/new"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: planNewPayload)
 
@@ -190,7 +190,7 @@ open class PlanAPI {
 
     /**
      Update one specific plan by id
-     - PUT /api/plan/{id}
+     - PUT /plan/{id}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -198,7 +198,7 @@ open class PlanAPI {
      - returns: RequestBuilder<Plan> 
      */
     open class func updatePlanWithRequestBuilder(id: Int) -> RequestBuilder<Plan> {
-        var path = "/api/plan/{id}"
+        var path = "/plan/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)

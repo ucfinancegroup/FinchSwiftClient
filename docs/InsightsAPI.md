@@ -1,11 +1,11 @@
 # InsightsAPI
 
-All URIs are relative to *https://localhost:8888*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**dismissInsight**](InsightsAPI.md#dismissinsight) | **PUT** /api/insight/{id}/dismiss | Dismiss an insight
-[**getInsights**](InsightsAPI.md#getinsights) | **GET** /api/insights | Get all a user&#39;s (non-dismissed) insights
+[**dismissInsight**](InsightsAPI.md#dismissinsight) | **PUT** /insight/{id}/dismiss | Dismiss an insight
+[**getInsights**](InsightsAPI.md#getinsights) | **GET** /insights | Get all a user&#39;s (non-dismissed) insights
 
 
 # **dismissInsight**

@@ -1,11 +1,11 @@
 # UserAPI
 
-All URIs are relative to *https://localhost:8888*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**loginUser**](UserAPI.md#loginuser) | **POST** /api/login | Log in a user
-[**signupUser**](UserAPI.md#signupuser) | **POST** /api/signup | Sign up a user
+[**loginUser**](UserAPI.md#loginuser) | **POST** /login | Log in a user
+[**signupUser**](UserAPI.md#signupuser) | **POST** /signup | Sign up a user
 
 
 # **loginUser**

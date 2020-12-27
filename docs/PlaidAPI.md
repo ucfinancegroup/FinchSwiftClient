@@ -1,11 +1,11 @@
 # PlaidAPI
 
-All URIs are relative to *https://localhost:8888*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**plaidLink**](PlaidAPI.md#plaidlink) | **POST** /api/plaid/link_token | to request link token for PlaidLink
-[**plaidLinkAccess**](PlaidAPI.md#plaidlinkaccess) | **POST** /api/plaid/public_token_exchange | For after a user does PlaidLink thru client
+[**plaidLink**](PlaidAPI.md#plaidlink) | **POST** /plaid/link_token | to request link token for PlaidLink
+[**plaidLinkAccess**](PlaidAPI.md#plaidlinkaccess) | **POST** /plaid/public_token_exchange | For after a user does PlaidLink thru client
 
 
 # **plaidLink**

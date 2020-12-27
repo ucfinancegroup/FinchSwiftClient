@@ -1,10 +1,10 @@
 # LeaderboardAPI
 
-All URIs are relative to *https://localhost:8888*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getLeaderboard**](LeaderboardAPI.md#getleaderboard) | **GET** /api/leaderboard/{type} | Get a leaderboard
+[**getLeaderboard**](LeaderboardAPI.md#getleaderboard) | **GET** /leaderboard/{type} | Get a leaderboard
 
 
 # **getLeaderboard**

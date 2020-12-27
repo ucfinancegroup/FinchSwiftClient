@@ -30,13 +30,13 @@ open class UserAPI {
 
     /**
      Log in a user
-     - POST /api/login
+     - POST /login
      - responseHeaders: [Set-Cookie(String)]
      - parameter loginPayload: (body)  
      - returns: RequestBuilder<User> 
      */
     open class func loginUserWithRequestBuilder(loginPayload: LoginPayload) -> RequestBuilder<User> {
-        let path = "/api/login"
+        let path = "/login"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: loginPayload)
 
@@ -67,13 +67,13 @@ open class UserAPI {
 
     /**
      Sign up a user
-     - POST /api/signup
+     - POST /signup
      - responseHeaders: [Set-Cookie(String)]
      - parameter signupPayload: (body)  
      - returns: RequestBuilder<User> 
      */
     open class func signupUserWithRequestBuilder(signupPayload: SignupPayload) -> RequestBuilder<User> {
-        let path = "/api/signup"
+        let path = "/signup"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: signupPayload)
 

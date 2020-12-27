@@ -30,7 +30,7 @@ open class InsightsAPI {
 
     /**
      Dismiss an insight
-     - PUT /api/insight/{id}/dismiss
+     - PUT /insight/{id}/dismiss
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -38,7 +38,7 @@ open class InsightsAPI {
      - returns: RequestBuilder<Insight> 
      */
     open class func dismissInsightWithRequestBuilder(id: Int) -> RequestBuilder<Insight> {
-        var path = "/api/insight/{id}/dismiss"
+        var path = "/insight/{id}/dismiss"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -71,14 +71,14 @@ open class InsightsAPI {
 
     /**
      Get all a user's (non-dismissed) insights
-     - GET /api/insights
+     - GET /insights
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
      - returns: RequestBuilder<[Insight]> 
      */
     open class func getInsightsWithRequestBuilder() -> RequestBuilder<[Insight]> {
-        let path = "/api/insights"
+        let path = "/insights"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         

@@ -29,14 +29,14 @@ open class PlaidAPI {
 
     /**
      to request link token for PlaidLink
-     - POST /api/plaid/link_token
+     - POST /plaid/link_token
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
      - returns: RequestBuilder<LinkTokenCreateResponse> 
      */
     open class func plaidLinkWithRequestBuilder() -> RequestBuilder<LinkTokenCreateResponse> {
-        let path = "/api/plaid/link_token"
+        let path = "/plaid/link_token"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -67,7 +67,7 @@ open class PlaidAPI {
 
     /**
      For after a user does PlaidLink thru client
-     - POST /api/plaid/public_token_exchange
+     - POST /plaid/public_token_exchange
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -75,7 +75,7 @@ open class PlaidAPI {
      - returns: RequestBuilder<ItemIdResponse> 
      */
     open class func plaidLinkAccessWithRequestBuilder(publicTokenExchangeRequest: PublicTokenExchangeRequest) -> RequestBuilder<ItemIdResponse> {
-        let path = "/api/plaid/public_token_exchange"
+        let path = "/plaid/public_token_exchange"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: publicTokenExchangeRequest)
 

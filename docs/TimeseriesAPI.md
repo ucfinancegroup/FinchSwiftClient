@@ -1,10 +1,10 @@
 # TimeseriesAPI
 
-All URIs are relative to *https://localhost:8888*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getTimeseries**](TimeseriesAPI.md#gettimeseries) | **GET** /api/timeseries | Get a user&#39;s projection timeseries
+[**getTimeseries**](TimeseriesAPI.md#gettimeseries) | **GET** /timeseries | Get a user&#39;s projection timeseries
 
 
 # **getTimeseries**

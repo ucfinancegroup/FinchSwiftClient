@@ -1,10 +1,10 @@
 # ValidationAPI
 
-All URIs are relative to *https://localhost:8888*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**validateUser**](ValidationAPI.md#validateuser) | **POST** /api/validate/user | This route lets our clients perform step-by-step signups.
+[**validateUser**](ValidationAPI.md#validateuser) | **POST** /validate/user | This route lets our clients perform step-by-step signups.
 
 
 # **validateUser**

@@ -1,14 +1,14 @@
 # GoalAPI
 
-All URIs are relative to *https://localhost:8888*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteGoal**](GoalAPI.md#deletegoal) | **DELETE** /api/goal/{id} | Delete one specific goal by id
-[**getGoal**](GoalAPI.md#getgoal) | **GET** /api/goal/{id} | Get one specific goal by id
-[**getGoals**](GoalAPI.md#getgoals) | **GET** /api/goals | Get all of a user&#39;s goals
-[**newGoal**](GoalAPI.md#newgoal) | **POST** /api/goal/new | Creates a new goal for the user
-[**updateGoal**](GoalAPI.md#updategoal) | **PUT** /api/goal/{id} | Update one specific goal by id
+[**deleteGoal**](GoalAPI.md#deletegoal) | **DELETE** /goal/{id} | Delete one specific goal by id
+[**getGoal**](GoalAPI.md#getgoal) | **GET** /goal/{id} | Get one specific goal by id
+[**getGoals**](GoalAPI.md#getgoals) | **GET** /goals | Get all of a user&#39;s goals
+[**newGoal**](GoalAPI.md#newgoal) | **POST** /goal/new | Creates a new goal for the user
+[**updateGoal**](GoalAPI.md#updategoal) | **PUT** /goal/{id} | Update one specific goal by id
 
 
 # **deleteGoal**

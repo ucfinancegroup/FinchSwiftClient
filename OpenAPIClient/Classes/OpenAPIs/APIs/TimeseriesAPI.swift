@@ -29,14 +29,14 @@ open class TimeseriesAPI {
 
     /**
      Get a user's projection timeseries
-     - GET /api/timeseries
+     - GET /timeseries
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
      - returns: RequestBuilder<TimeSeries> 
      */
     open class func getTimeseriesWithRequestBuilder() -> RequestBuilder<TimeSeries> {
-        let path = "/api/timeseries"
+        let path = "/timeseries"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         

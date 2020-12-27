@@ -30,7 +30,7 @@ open class GoalAPI {
 
     /**
      Delete one specific goal by id
-     - DELETE /api/goal/{id}
+     - DELETE /goal/{id}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -38,7 +38,7 @@ open class GoalAPI {
      - returns: RequestBuilder<Goal> 
      */
     open class func deleteGoalWithRequestBuilder(id: Int) -> RequestBuilder<Goal> {
-        var path = "/api/goal/{id}"
+        var path = "/goal/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -72,7 +72,7 @@ open class GoalAPI {
 
     /**
      Get one specific goal by id
-     - GET /api/goal/{id}
+     - GET /goal/{id}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -80,7 +80,7 @@ open class GoalAPI {
      - returns: RequestBuilder<Goal> 
      */
     open class func getGoalWithRequestBuilder(id: Int) -> RequestBuilder<Goal> {
-        var path = "/api/goal/{id}"
+        var path = "/goal/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -113,14 +113,14 @@ open class GoalAPI {
 
     /**
      Get all of a user's goals
-     - GET /api/goals
+     - GET /goals
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
      - returns: RequestBuilder<[Goal]> 
      */
     open class func getGoalsWithRequestBuilder() -> RequestBuilder<[Goal]> {
-        let path = "/api/goals"
+        let path = "/goals"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -151,7 +151,7 @@ open class GoalAPI {
 
     /**
      Creates a new goal for the user
-     - POST /api/goal/new
+     - POST /goal/new
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -159,7 +159,7 @@ open class GoalAPI {
      - returns: RequestBuilder<Goal> 
      */
     open class func newGoalWithRequestBuilder(goalNewPayload: GoalNewPayload) -> RequestBuilder<Goal> {
-        let path = "/api/goal/new"
+        let path = "/goal/new"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: goalNewPayload)
 
@@ -190,7 +190,7 @@ open class GoalAPI {
 
     /**
      Update one specific goal by id
-     - PUT /api/goal/{id}
+     - PUT /goal/{id}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -198,7 +198,7 @@ open class GoalAPI {
      - returns: RequestBuilder<Goal> 
      */
     open class func updateGoalWithRequestBuilder(id: Int) -> RequestBuilder<Goal> {
-        var path = "/api/goal/{id}"
+        var path = "/goal/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)

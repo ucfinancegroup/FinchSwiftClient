@@ -30,7 +30,7 @@ open class RecurringAPI {
 
     /**
      Delete one specific recurring by id
-     - DELETE /api/recurring/{id}
+     - DELETE /recurring/{id}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -38,7 +38,7 @@ open class RecurringAPI {
      - returns: RequestBuilder<Recurring> 
      */
     open class func deleteRecurringWithRequestBuilder(id: Int) -> RequestBuilder<Recurring> {
-        var path = "/api/recurring/{id}"
+        var path = "/recurring/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -72,7 +72,7 @@ open class RecurringAPI {
 
     /**
      Get one specific recurring by id
-     - GET /api/recurring/{id}
+     - GET /recurring/{id}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -80,7 +80,7 @@ open class RecurringAPI {
      - returns: RequestBuilder<Recurring> 
      */
     open class func getRecurringWithRequestBuilder(id: Int) -> RequestBuilder<Recurring> {
-        var path = "/api/recurring/{id}"
+        var path = "/recurring/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
@@ -113,14 +113,14 @@ open class RecurringAPI {
 
     /**
      Get all of a user's recurrings
-     - GET /api/recurrings
+     - GET /recurrings
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
      - returns: RequestBuilder<[Recurring]> 
      */
     open class func getRecurringsWithRequestBuilder() -> RequestBuilder<[Recurring]> {
-        let path = "/api/recurrings"
+        let path = "/recurrings"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -151,7 +151,7 @@ open class RecurringAPI {
 
     /**
      Creates a new recurring for the user
-     - POST /api/recurring/new
+     - POST /recurring/new
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -159,7 +159,7 @@ open class RecurringAPI {
      - returns: RequestBuilder<Recurring> 
      */
     open class func newRecurringWithRequestBuilder(recurringNewPayload: RecurringNewPayload) -> RequestBuilder<Recurring> {
-        let path = "/api/recurring/new"
+        let path = "/recurring/new"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: recurringNewPayload)
 
@@ -190,7 +190,7 @@ open class RecurringAPI {
 
     /**
      Update one specific recurring by id
-     - PUT /api/recurring/{id}
+     - PUT /recurring/{id}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -198,7 +198,7 @@ open class RecurringAPI {
      - returns: RequestBuilder<Recurring> 
      */
     open class func updateRecurringWithRequestBuilder(id: Int) -> RequestBuilder<Recurring> {
-        var path = "/api/recurring/{id}"
+        var path = "/recurring/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)

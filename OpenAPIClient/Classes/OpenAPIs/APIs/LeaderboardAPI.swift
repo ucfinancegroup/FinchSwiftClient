@@ -39,7 +39,7 @@ open class LeaderboardAPI {
 
     /**
      Get a leaderboard
-     - GET /api/leaderboard/{type}
+     - GET /leaderboard/{type}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
@@ -47,7 +47,7 @@ open class LeaderboardAPI {
      - returns: RequestBuilder<LeaderboardResponse> 
      */
     open class func getLeaderboardWithRequestBuilder(type: ModelType_getLeaderboard) -> RequestBuilder<LeaderboardResponse> {
-        var path = "/api/leaderboard/{type}"
+        var path = "/leaderboard/{type}"
         let typePreEscape = "\(type.rawValue)"
         let typePostEscape = typePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{type}", with: typePostEscape, options: .literal, range: nil)

@@ -1,14 +1,14 @@
 # RecurringAPI
 
-All URIs are relative to *https://localhost:8888*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteRecurring**](RecurringAPI.md#deleterecurring) | **DELETE** /api/recurring/{id} | Delete one specific recurring by id
-[**getRecurring**](RecurringAPI.md#getrecurring) | **GET** /api/recurring/{id} | Get one specific recurring by id
-[**getRecurrings**](RecurringAPI.md#getrecurrings) | **GET** /api/recurrings | Get all of a user&#39;s recurrings
-[**newRecurring**](RecurringAPI.md#newrecurring) | **POST** /api/recurring/new | Creates a new recurring for the user
-[**updateRecurring**](RecurringAPI.md#updaterecurring) | **PUT** /api/recurring/{id} | Update one specific recurring by id
+[**deleteRecurring**](RecurringAPI.md#deleterecurring) | **DELETE** /recurring/{id} | Delete one specific recurring by id
+[**getRecurring**](RecurringAPI.md#getrecurring) | **GET** /recurring/{id} | Get one specific recurring by id
+[**getRecurrings**](RecurringAPI.md#getrecurrings) | **GET** /recurrings | Get all of a user&#39;s recurrings
+[**newRecurring**](RecurringAPI.md#newrecurring) | **POST** /recurring/new | Creates a new recurring for the user
+[**updateRecurring**](RecurringAPI.md#updaterecurring) | **PUT** /recurring/{id} | Update one specific recurring by id
 
 
 # **deleteRecurring**

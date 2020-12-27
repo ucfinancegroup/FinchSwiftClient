@@ -1,11 +1,11 @@
 # UsersAPI
 
-All URIs are relative to *https://localhost:8888*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**registerIOSDevice**](UsersAPI.md#registeriosdevice) | **POST** /api/registerIOSDevice | This route will be called once a user logs in on an iOS device and route body will contain the URL of the iOS device, this will be stored in the User model.
-[**updateUser**](UsersAPI.md#updateuser) | **PUT** /api/update/user | This route receives a payload with requests to change data of a user
+[**registerIOSDevice**](UsersAPI.md#registeriosdevice) | **POST** /registerIOSDevice | This route will be called once a user logs in on an iOS device and route body will contain the URL of the iOS device, this will be stored in the User model.
+[**updateUser**](UsersAPI.md#updateuser) | **PUT** /update/user | This route receives a payload with requests to change data of a user
 
 
 # **registerIOSDevice**

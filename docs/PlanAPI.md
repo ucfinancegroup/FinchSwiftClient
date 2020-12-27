@@ -1,14 +1,14 @@
 # PlanAPI
 
-All URIs are relative to *https://localhost:8888*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deletePlan**](PlanAPI.md#deleteplan) | **DELETE** /api/plan/{id} | Delete one specific plan by id
-[**getPlan**](PlanAPI.md#getplan) | **GET** /api/plan/{id} | Get one specific plan by id
-[**getPlans**](PlanAPI.md#getplans) | **GET** /api/plans | Get all of a user&#39;s plans
-[**newPlan**](PlanAPI.md#newplan) | **POST** /api/plan/new | Creates a new plan for the user
-[**updatePlan**](PlanAPI.md#updateplan) | **PUT** /api/plan/{id} | Update one specific plan by id
+[**deletePlan**](PlanAPI.md#deleteplan) | **DELETE** /plan/{id} | Delete one specific plan by id
+[**getPlan**](PlanAPI.md#getplan) | **GET** /plan/{id} | Get one specific plan by id
+[**getPlans**](PlanAPI.md#getplans) | **GET** /plans | Get all of a user&#39;s plans
+[**newPlan**](PlanAPI.md#newplan) | **POST** /plan/new | Creates a new plan for the user
+[**updatePlan**](PlanAPI.md#updateplan) | **PUT** /plan/{id} | Update one specific plan by id
 
 
 # **deletePlan**

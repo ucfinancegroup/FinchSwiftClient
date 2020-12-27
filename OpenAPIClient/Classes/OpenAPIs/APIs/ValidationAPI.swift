@@ -30,12 +30,12 @@ open class ValidationAPI {
 
     /**
      This route lets our clients perform step-by-step signups.
-     - POST /api/validate/user
+     - POST /validate/user
      - parameter validateUserPayload: (body)  
      - returns: RequestBuilder<Void> 
      */
     open class func validateUserWithRequestBuilder(validateUserPayload: ValidateUserPayload) -> RequestBuilder<Void> {
-        let path = "/api/validate/user"
+        let path = "/validate/user"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: validateUserPayload)
 
