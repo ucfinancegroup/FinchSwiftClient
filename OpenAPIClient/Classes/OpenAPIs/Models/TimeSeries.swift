@@ -19,7 +19,7 @@ public struct TimeSeries: Codable {
         self.series = series
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case startDay = "start_day"
         case series
     }

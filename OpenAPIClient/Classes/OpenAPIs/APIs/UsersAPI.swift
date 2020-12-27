@@ -13,17 +13,11 @@ open class UsersAPI {
     /**
      This route will be called once a user logs in on an iOS device and route body will contain the URL of the iOS device, this will be stored in the User model.
      
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func registerIOSDevice(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApiError?,_ error: Error?) -> Void)) {
-        registerIOSDeviceWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func registerIOSDevice(completion: @escaping ((_ data: ApiError?,_ error: Error?) -> Void)) {
+        registerIOSDeviceWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -51,17 +45,11 @@ open class UsersAPI {
      This route receives a payload with requests to change data of a user
      
      - parameter updateUserRequest: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updateUser(updateUserRequest: UpdateUserRequest, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: User?,_ error: Error?) -> Void)) {
-        updateUserWithRequestBuilder(updateUserRequest: updateUserRequest).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func updateUser(updateUserRequest: UpdateUserRequest, completion: @escaping ((_ data: User?,_ error: Error?) -> Void)) {
+        updateUserWithRequestBuilder(updateUserRequest: updateUserRequest).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 

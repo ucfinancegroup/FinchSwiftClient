@@ -14,17 +14,11 @@ open class PlanAPI {
      Delete one specific plan by id
      
      - parameter id: (path) Numeric ID of the Plan to delete 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func deletePlan(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
-        deletePlanWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func deletePlan(id: Int, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
+        deletePlanWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -56,17 +50,11 @@ open class PlanAPI {
      Get one specific plan by id
      
      - parameter id: (path) Numeric ID of the Plan to get 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPlan(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
-        getPlanWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func getPlan(id: Int, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
+        getPlanWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -97,17 +85,11 @@ open class PlanAPI {
     /**
      Get all of a user's plans
      
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPlans(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Plan]?,_ error: Error?) -> Void)) {
-        getPlansWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func getPlans(completion: @escaping ((_ data: [Plan]?,_ error: Error?) -> Void)) {
+        getPlansWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -135,17 +117,11 @@ open class PlanAPI {
      Creates a new plan for the user
      
      - parameter planNewPayload: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func newPlan(planNewPayload: PlanNewPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
-        newPlanWithRequestBuilder(planNewPayload: planNewPayload).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func newPlan(planNewPayload: PlanNewPayload, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
+        newPlanWithRequestBuilder(planNewPayload: planNewPayload).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -174,17 +150,11 @@ open class PlanAPI {
      Update one specific plan by id
      
      - parameter id: (path) Numeric ID of the Plan to update 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updatePlan(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
-        updatePlanWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func updatePlan(id: Int, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
+        updatePlanWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 

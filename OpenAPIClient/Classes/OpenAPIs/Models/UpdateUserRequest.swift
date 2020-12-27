@@ -23,7 +23,7 @@ public struct UpdateUserRequest: Codable {
         self.income = income
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case password
         case firstName = "first_name"
         case lastName = "last_name"

@@ -25,7 +25,7 @@ public struct Plan: Codable {
         self.events = events
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case id = "_id"
         case name
         case recurrings

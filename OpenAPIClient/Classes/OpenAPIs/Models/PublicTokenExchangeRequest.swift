@@ -21,7 +21,7 @@ public struct PublicTokenExchangeRequest: Codable {
         self.secret = secret
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case publicToken = "public_token"
         case clientId = "client_id"
         case secret

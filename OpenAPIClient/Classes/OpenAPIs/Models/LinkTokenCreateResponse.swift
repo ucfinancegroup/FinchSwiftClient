@@ -21,7 +21,7 @@ public struct LinkTokenCreateResponse: Codable {
         self.requestId = requestId
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case linkToken = "link_token"
         case expiration
         case requestId = "request_id"

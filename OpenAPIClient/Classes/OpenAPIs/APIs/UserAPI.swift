@@ -14,17 +14,11 @@ open class UserAPI {
      Log in a user
      
      - parameter loginPayload: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func loginUser(loginPayload: LoginPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: User?,_ error: Error?) -> Void)) {
-        loginUserWithRequestBuilder(loginPayload: loginPayload).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func loginUser(loginPayload: LoginPayload, completion: @escaping ((_ data: User?,_ error: Error?) -> Void)) {
+        loginUserWithRequestBuilder(loginPayload: loginPayload).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -51,17 +45,11 @@ open class UserAPI {
      Sign up a user
      
      - parameter signupPayload: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func signupUser(signupPayload: SignupPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: User?,_ error: Error?) -> Void)) {
-        signupUserWithRequestBuilder(signupPayload: signupPayload).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func signupUser(signupPayload: SignupPayload, completion: @escaping ((_ data: User?,_ error: Error?) -> Void)) {
+        signupUserWithRequestBuilder(signupPayload: signupPayload).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 

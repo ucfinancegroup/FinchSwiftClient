@@ -13,7 +13,7 @@ open class LeaderboardAPI {
     /**
      * enum for parameter type
      */
-    public enum ModelType_getLeaderboard: String, CaseIterable {
+    public enum ModelType_getLeaderboard: String {
         case savings = "savings"
         case spending = "spending"
         case income = "income"
@@ -23,17 +23,11 @@ open class LeaderboardAPI {
      Get a leaderboard
      
      - parameter type: (path) Which leaderboard to get 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getLeaderboard(type: ModelType_getLeaderboard, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: LeaderboardResponse?,_ error: Error?) -> Void)) {
-        getLeaderboardWithRequestBuilder(type: type).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func getLeaderboard(type: ModelType_getLeaderboard, completion: @escaping ((_ data: LeaderboardResponse?,_ error: Error?) -> Void)) {
+        getLeaderboardWithRequestBuilder(type: type).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 

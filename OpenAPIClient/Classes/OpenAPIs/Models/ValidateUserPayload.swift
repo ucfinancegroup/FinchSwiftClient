@@ -11,7 +11,7 @@ import Foundation
 public struct ValidateUserPayload: Codable { 
 
 
-    public enum Typ: String, Codable, CaseIterable {
+    public enum Typ: String, Codable {
         case email = "email"
         case password = "password"
     }

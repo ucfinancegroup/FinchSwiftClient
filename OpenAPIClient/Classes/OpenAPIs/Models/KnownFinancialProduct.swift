@@ -23,7 +23,7 @@ public struct KnownFinancialProduct: Codable {
         self.productUrl = productUrl
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case name
         case typ
         case logo

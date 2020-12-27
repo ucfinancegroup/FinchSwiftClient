@@ -14,15 +14,13 @@ open class ValidationAPI {
      This route lets our clients perform step-by-step signups.
      
      - parameter validateUserPayload: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func validateUser(validateUserPayload: ValidateUserPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        validateUserWithRequestBuilder(validateUserPayload: validateUserPayload).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case .success:
-                completion((), nil)
-            case let .failure(error):
+    open class func validateUser(validateUserPayload: ValidateUserPayload, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        validateUserWithRequestBuilder(validateUserPayload: validateUserPayload).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
                 completion(nil, error)
             }
         }

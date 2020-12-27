@@ -35,7 +35,7 @@ public struct Recurring: Codable {
         self.contributionFreq = contributionFreq
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case id = "_id"
         case name
         case start

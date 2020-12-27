@@ -27,7 +27,7 @@ public struct User: Codable {
         self.deviceUrl = deviceUrl
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case email
         case location
         case firstName = "first_name"

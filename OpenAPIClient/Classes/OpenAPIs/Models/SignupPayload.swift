@@ -25,7 +25,7 @@ public struct SignupPayload: Codable {
         self.income = income
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case email
         case password
         case firstName = "first_name"

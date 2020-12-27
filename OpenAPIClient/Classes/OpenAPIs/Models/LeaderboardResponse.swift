@@ -21,7 +21,7 @@ public struct LeaderboardResponse: Codable {
         self.percentile = percentile
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case leaderboardType = "leaderboard_type"
         case description
         case percentile

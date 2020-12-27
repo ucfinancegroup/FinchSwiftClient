@@ -14,17 +14,11 @@ open class GoalAPI {
      Delete one specific goal by id
      
      - parameter id: (path) Numeric ID of the Goal to delete 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func deleteGoal(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
-        deleteGoalWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func deleteGoal(id: Int, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
+        deleteGoalWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -56,17 +50,11 @@ open class GoalAPI {
      Get one specific goal by id
      
      - parameter id: (path) Numeric ID of the Goal to get 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getGoal(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
-        getGoalWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func getGoal(id: Int, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
+        getGoalWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -97,17 +85,11 @@ open class GoalAPI {
     /**
      Get all of a user's goals
      
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getGoals(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Goal]?,_ error: Error?) -> Void)) {
-        getGoalsWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func getGoals(completion: @escaping ((_ data: [Goal]?,_ error: Error?) -> Void)) {
+        getGoalsWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -135,17 +117,11 @@ open class GoalAPI {
      Creates a new goal for the user
      
      - parameter goalNewPayload: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func newGoal(goalNewPayload: GoalNewPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
-        newGoalWithRequestBuilder(goalNewPayload: goalNewPayload).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func newGoal(goalNewPayload: GoalNewPayload, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
+        newGoalWithRequestBuilder(goalNewPayload: goalNewPayload).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -174,17 +150,11 @@ open class GoalAPI {
      Update one specific goal by id
      
      - parameter id: (path) Numeric ID of the Goal to update 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updateGoal(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
-        updateGoalWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func updateGoal(id: Int, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
+        updateGoalWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 

@@ -22,7 +22,7 @@ public struct Asset: Codable {
         self.performance = performance
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case name
         case _class = "class"
         case performance

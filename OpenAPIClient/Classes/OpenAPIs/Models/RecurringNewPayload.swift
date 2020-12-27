@@ -33,7 +33,7 @@ public struct RecurringNewPayload: Codable {
         self.contributionFreq = contributionFreq
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case name
         case start
         case end

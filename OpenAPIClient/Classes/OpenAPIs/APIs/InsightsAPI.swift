@@ -14,17 +14,11 @@ open class InsightsAPI {
      Dismiss an insight
      
      - parameter id: (path) Numeric ID of the Insight to dismiss 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func dismissInsight(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Insight?,_ error: Error?) -> Void)) {
-        dismissInsightWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func dismissInsight(id: Int, completion: @escaping ((_ data: Insight?,_ error: Error?) -> Void)) {
+        dismissInsightWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -55,17 +49,11 @@ open class InsightsAPI {
     /**
      Get all a user's (non-dismissed) insights
      
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getInsights(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Insight]?,_ error: Error?) -> Void)) {
-        getInsightsWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func getInsights(completion: @escaping ((_ data: [Insight]?,_ error: Error?) -> Void)) {
+        getInsightsWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 

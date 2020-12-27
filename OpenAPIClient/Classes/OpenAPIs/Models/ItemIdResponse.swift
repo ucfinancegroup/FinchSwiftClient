@@ -18,7 +18,7 @@ public struct ItemIdResponse: Codable {
         self.itemId = itemId
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case itemId = "item_id"
     }
 

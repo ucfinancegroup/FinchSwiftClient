@@ -11,7 +11,7 @@ import Foundation
 public struct GoalNewPayload: Codable { 
 
 
-    public enum GoalSide: String, Codable, CaseIterable {
+    public enum GoalSide: String, Codable {
         case above = "above"
         case below = "below"
     }
@@ -27,7 +27,7 @@ public struct GoalNewPayload: Codable {
         self.goalSide = goalSide
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey { 
         case name
         case period
         case threshold

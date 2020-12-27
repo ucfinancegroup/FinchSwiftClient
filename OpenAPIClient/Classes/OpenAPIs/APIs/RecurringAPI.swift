@@ -14,17 +14,11 @@ open class RecurringAPI {
      Delete one specific recurring by id
      
      - parameter id: (path) Numeric ID of the Recurring to delete 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func deleteRecurring(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
-        deleteRecurringWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func deleteRecurring(id: Int, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
+        deleteRecurringWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -56,17 +50,11 @@ open class RecurringAPI {
      Get one specific recurring by id
      
      - parameter id: (path) Numeric ID of the Recurring to get 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getRecurring(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
-        getRecurringWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func getRecurring(id: Int, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
+        getRecurringWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -97,17 +85,11 @@ open class RecurringAPI {
     /**
      Get all of a user's recurrings
      
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getRecurrings(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Recurring]?,_ error: Error?) -> Void)) {
-        getRecurringsWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func getRecurrings(completion: @escaping ((_ data: [Recurring]?,_ error: Error?) -> Void)) {
+        getRecurringsWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -135,17 +117,11 @@ open class RecurringAPI {
      Creates a new recurring for the user
      
      - parameter recurringNewPayload: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func newRecurring(recurringNewPayload: RecurringNewPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
-        newRecurringWithRequestBuilder(recurringNewPayload: recurringNewPayload).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func newRecurring(recurringNewPayload: RecurringNewPayload, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
+        newRecurringWithRequestBuilder(recurringNewPayload: recurringNewPayload).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
@@ -174,17 +150,11 @@ open class RecurringAPI {
      Update one specific recurring by id
      
      - parameter id: (path) Numeric ID of the Recurring to update 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updateRecurring(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
-        updateRecurringWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
+    open class func updateRecurring(id: Int, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
+        updateRecurringWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(response?.body, error)
         }
     }
 
