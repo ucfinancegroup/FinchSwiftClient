@@ -1,6 +1,6 @@
 # TimeseriesAPI
 
-All URIs are relative to *https://localhost:8888/api*
+All URIs are relative to *https://finchapp.eastus.cloudapp.azure.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
