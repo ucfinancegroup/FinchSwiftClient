@@ -1,13 +1,9 @@
-# Plan
+# MongoObjectID
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**MongoObjectID**](MongoObjectID.md) |  | 
-**name** | **String** |  | 
-**recurrings** | [Recurring] |  | [optional] 
-**allocations** | [Allocation] |  | [optional] 
-**events** | [Event] |  | [optional] 
+**oid** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -17,7 +17,7 @@ open class InsightsAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func dismissInsight(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Insight?,_ error: Error?) -> Void)) {
+    open class func dismissInsight(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Insight?,_ error: Error?) -> Void)) {
         dismissInsightWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -37,7 +37,7 @@ open class InsightsAPI {
      - parameter id: (path) Numeric ID of the Insight to dismiss 
      - returns: RequestBuilder<Insight> 
      */
-    open class func dismissInsightWithRequestBuilder(id: Int) -> RequestBuilder<Insight> {
+    open class func dismissInsightWithRequestBuilder(id: String) -> RequestBuilder<Insight> {
         var path = "/insight/{id}/dismiss"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

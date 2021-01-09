@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **deleteGoal**
 ```swift
-    open class func deleteGoal(id: Int, completion: @escaping (_ data: Goal?, _ error: Error?) -> Void)
+    open class func deleteGoal(id: String, completion: @escaping (_ data: Goal?, _ error: Error?) -> Void)
 ```
 
 Delete one specific goal by id
@@ -23,7 +23,7 @@ Delete one specific goal by id
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = 987 // Int | Numeric ID of the Goal to delete
+let id = "id_example" // String | Numeric ID of the Goal to delete
 
 // Delete one specific goal by id
 GoalAPI.deleteGoal(id: id) { (response, error) in
@@ -42,7 +42,7 @@ GoalAPI.deleteGoal(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | Numeric ID of the Goal to delete | 
+ **id** | **String** | Numeric ID of the Goal to delete | 
 
 ### Return type
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **getGoal**
 ```swift
-    open class func getGoal(id: Int, completion: @escaping (_ data: Goal?, _ error: Error?) -> Void)
+    open class func getGoal(id: String, completion: @escaping (_ data: Goal?, _ error: Error?) -> Void)
 ```
 
 Get one specific goal by id
@@ -71,7 +71,7 @@ Get one specific goal by id
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = 987 // Int | Numeric ID of the Goal to get
+let id = "id_example" // String | Numeric ID of the Goal to get
 
 // Get one specific goal by id
 GoalAPI.getGoal(id: id) { (response, error) in
@@ -90,7 +90,7 @@ GoalAPI.getGoal(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | Numeric ID of the Goal to get | 
+ **id** | **String** | Numeric ID of the Goal to get | 
 
 ### Return type
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 # **updateGoal**
 ```swift
-    open class func updateGoal(id: Int, completion: @escaping (_ data: Goal?, _ error: Error?) -> Void)
+    open class func updateGoal(id: String, completion: @escaping (_ data: Goal?, _ error: Error?) -> Void)
 ```
 
 Update one specific goal by id
@@ -211,7 +211,7 @@ Update one specific goal by id
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = 987 // Int | Numeric ID of the Goal to update
+let id = "id_example" // String | Numeric ID of the Goal to update
 
 // Update one specific goal by id
 GoalAPI.updateGoal(id: id) { (response, error) in
@@ -230,7 +230,7 @@ GoalAPI.updateGoal(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | Numeric ID of the Goal to update | 
+ **id** | **String** | Numeric ID of the Goal to update | 
 
 ### Return type
 

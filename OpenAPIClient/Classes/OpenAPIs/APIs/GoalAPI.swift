@@ -17,7 +17,7 @@ open class GoalAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func deleteGoal(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
+    open class func deleteGoal(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
         deleteGoalWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -37,7 +37,7 @@ open class GoalAPI {
      - parameter id: (path) Numeric ID of the Goal to delete 
      - returns: RequestBuilder<Goal> 
      */
-    open class func deleteGoalWithRequestBuilder(id: Int) -> RequestBuilder<Goal> {
+    open class func deleteGoalWithRequestBuilder(id: String) -> RequestBuilder<Goal> {
         var path = "/goal/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -59,7 +59,7 @@ open class GoalAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getGoal(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
+    open class func getGoal(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
         getGoalWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -79,7 +79,7 @@ open class GoalAPI {
      - parameter id: (path) Numeric ID of the Goal to get 
      - returns: RequestBuilder<Goal> 
      */
-    open class func getGoalWithRequestBuilder(id: Int) -> RequestBuilder<Goal> {
+    open class func getGoalWithRequestBuilder(id: String) -> RequestBuilder<Goal> {
         var path = "/goal/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -177,7 +177,7 @@ open class GoalAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updateGoal(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
+    open class func updateGoal(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Goal?,_ error: Error?) -> Void)) {
         updateGoalWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -197,7 +197,7 @@ open class GoalAPI {
      - parameter id: (path) Numeric ID of the Goal to update 
      - returns: RequestBuilder<Goal> 
      */
-    open class func updateGoalWithRequestBuilder(id: Int) -> RequestBuilder<Goal> {
+    open class func updateGoalWithRequestBuilder(id: String) -> RequestBuilder<Goal> {
         var path = "/goal/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

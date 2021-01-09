@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
+**id** | [**MongoObjectID**](MongoObjectID.md) |  | 
 **name** | **String** |  | 
 **period** | [**TimePeriod**](TimePeriod.md) |  | 
 **threshold** | **Double** |  | 

@@ -15,7 +15,7 @@ public struct Goal: Codable {
         case above = "above"
         case below = "below"
     }
-    public var id: String
+    public var id: MongoObjectID
     public var name: String
     public var period: TimePeriod
     public var threshold: Double
@@ -23,7 +23,7 @@ public struct Goal: Codable {
     public var completed: Bool
     public var feasible: Bool?
 
-    public init(id: String, name: String, period: TimePeriod, threshold: Double, goalSide: GoalSide, completed: Bool, feasible: Bool?) {
+    public init(id: MongoObjectID, name: String, period: TimePeriod, threshold: Double, goalSide: GoalSide, completed: Bool, feasible: Bool?) {
         self.id = id
         self.name = name
         self.period = period

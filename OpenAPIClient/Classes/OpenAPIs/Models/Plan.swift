@@ -11,13 +11,13 @@ import Foundation
 public struct Plan: Codable { 
 
 
-    public var id: String
+    public var id: MongoObjectID
     public var name: String
     public var recurrings: [Recurring]?
-    public var allocations: [Transform]?
+    public var allocations: [Allocation]?
     public var events: [Event]?
 
-    public init(id: String, name: String, recurrings: [Recurring]?, allocations: [Transform]?, events: [Event]?) {
+    public init(id: MongoObjectID, name: String, recurrings: [Recurring]?, allocations: [Allocation]?, events: [Event]?) {
         self.id = id
         self.name = name
         self.recurrings = recurrings

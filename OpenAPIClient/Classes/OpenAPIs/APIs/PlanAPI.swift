@@ -17,7 +17,7 @@ open class PlanAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func deletePlan(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
+    open class func deletePlan(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
         deletePlanWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -37,7 +37,7 @@ open class PlanAPI {
      - parameter id: (path) Numeric ID of the Plan to delete 
      - returns: RequestBuilder<Plan> 
      */
-    open class func deletePlanWithRequestBuilder(id: Int) -> RequestBuilder<Plan> {
+    open class func deletePlanWithRequestBuilder(id: String) -> RequestBuilder<Plan> {
         var path = "/plan/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -59,7 +59,7 @@ open class PlanAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPlan(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
+    open class func getPlan(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
         getPlanWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -79,7 +79,7 @@ open class PlanAPI {
      - parameter id: (path) Numeric ID of the Plan to get 
      - returns: RequestBuilder<Plan> 
      */
-    open class func getPlanWithRequestBuilder(id: Int) -> RequestBuilder<Plan> {
+    open class func getPlanWithRequestBuilder(id: String) -> RequestBuilder<Plan> {
         var path = "/plan/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -177,7 +177,7 @@ open class PlanAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updatePlan(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
+    open class func updatePlan(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?,_ error: Error?) -> Void)) {
         updatePlanWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -197,7 +197,7 @@ open class PlanAPI {
      - parameter id: (path) Numeric ID of the Plan to update 
      - returns: RequestBuilder<Plan> 
      */
-    open class func updatePlanWithRequestBuilder(id: Int) -> RequestBuilder<Plan> {
+    open class func updatePlanWithRequestBuilder(id: String) -> RequestBuilder<Plan> {
         var path = "/plan/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

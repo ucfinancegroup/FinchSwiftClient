@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **deletePlan**
 ```swift
-    open class func deletePlan(id: Int, completion: @escaping (_ data: Plan?, _ error: Error?) -> Void)
+    open class func deletePlan(id: String, completion: @escaping (_ data: Plan?, _ error: Error?) -> Void)
 ```
 
 Delete one specific plan by id
@@ -23,7 +23,7 @@ Delete one specific plan by id
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = 987 // Int | Numeric ID of the Plan to delete
+let id = "id_example" // String | Numeric ID of the Plan to delete
 
 // Delete one specific plan by id
 PlanAPI.deletePlan(id: id) { (response, error) in
@@ -42,7 +42,7 @@ PlanAPI.deletePlan(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | Numeric ID of the Plan to delete | 
+ **id** | **String** | Numeric ID of the Plan to delete | 
 
 ### Return type
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **getPlan**
 ```swift
-    open class func getPlan(id: Int, completion: @escaping (_ data: Plan?, _ error: Error?) -> Void)
+    open class func getPlan(id: String, completion: @escaping (_ data: Plan?, _ error: Error?) -> Void)
 ```
 
 Get one specific plan by id
@@ -71,7 +71,7 @@ Get one specific plan by id
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = 987 // Int | Numeric ID of the Plan to get
+let id = "id_example" // String | Numeric ID of the Plan to get
 
 // Get one specific plan by id
 PlanAPI.getPlan(id: id) { (response, error) in
@@ -90,7 +90,7 @@ PlanAPI.getPlan(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | Numeric ID of the Plan to get | 
+ **id** | **String** | Numeric ID of the Plan to get | 
 
 ### Return type
 
@@ -163,7 +163,7 @@ Creates a new plan for the user
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let planNewPayload = PlanNewPayload(name: "name_example", recurrings: [Recurring(id: "id_example", name: "name_example", start: 123, end: 123, principal: 123, amount: 123, interest: 123, amountFreq: TimeInterval(typ: "typ_example", content: 123), interestFreq: TimeInterval(typ: "typ_example", content: 123), contributionFreq: TimeInterval(typ: "typ_example", content: 123))], allocations: [Transform(trigger: 123, change: "TODO")], events: [Event(name: "name_example", start: 123, transforms: [Transform(trigger: 123, change: "TODO")])]) // PlanNewPayload | 
+let planNewPayload = PlanNewPayload(name: "name_example", recurrings: [Recurring(id: MongoObjectID(oid: "oid_example"), name: "name_example", start: 123, end: 123, principal: 123, amount: 123, interest: 123, frequency: TimeInterval(typ: "typ_example", content: 123))], allocations: [Transform(trigger: 123, change: "TODO")], events: [Event(name: "name_example", start: 123, transforms: [Transform(trigger: 123, change: "TODO")])]) // PlanNewPayload | 
 
 // Creates a new plan for the user
 PlanAPI.newPlan(planNewPayload: planNewPayload) { (response, error) in
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 # **updatePlan**
 ```swift
-    open class func updatePlan(id: Int, completion: @escaping (_ data: Plan?, _ error: Error?) -> Void)
+    open class func updatePlan(id: String, completion: @escaping (_ data: Plan?, _ error: Error?) -> Void)
 ```
 
 Update one specific plan by id
@@ -211,7 +211,7 @@ Update one specific plan by id
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = 987 // Int | Numeric ID of the Plan to update
+let id = "id_example" // String | Numeric ID of the Plan to update
 
 // Update one specific plan by id
 PlanAPI.updatePlan(id: id) { (response, error) in
@@ -230,7 +230,7 @@ PlanAPI.updatePlan(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | Numeric ID of the Plan to update | 
+ **id** | **String** | Numeric ID of the Plan to update | 
 
 ### Return type
 

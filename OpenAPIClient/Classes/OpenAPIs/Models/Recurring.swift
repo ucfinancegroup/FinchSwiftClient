@@ -11,18 +11,16 @@ import Foundation
 public struct Recurring: Codable { 
 
 
-    public var id: String
+    public var id: MongoObjectID
     public var name: String
-    public var start: Int
-    public var end: Int
-    public var principal: Int
-    public var amount: Int
-    public var interest: Int
-    public var amountFreq: TimeInterval
-    public var interestFreq: TimeInterval
-    public var contributionFreq: TimeInterval
+    public var start: Int64
+    public var end: Int64
+    public var principal: Int64
+    public var amount: Int64
+    public var interest: Double
+    public var frequency: TimeInterval
 
-    public init(id: String, name: String, start: Int, end: Int, principal: Int, amount: Int, interest: Int, amountFreq: TimeInterval, interestFreq: TimeInterval, contributionFreq: TimeInterval) {
+    public init(id: MongoObjectID, name: String, start: Int64, end: Int64, principal: Int64, amount: Int64, interest: Double, frequency: TimeInterval) {
         self.id = id
         self.name = name
         self.start = start
@@ -30,9 +28,7 @@ public struct Recurring: Codable {
         self.principal = principal
         self.amount = amount
         self.interest = interest
-        self.amountFreq = amountFreq
-        self.interestFreq = interestFreq
-        self.contributionFreq = contributionFreq
+        self.frequency = frequency
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable { 
@@ -43,9 +39,7 @@ public struct Recurring: Codable {
         case principal
         case amount
         case interest
-        case amountFreq = "amount_freq"
-        case interestFreq = "interest_freq"
-        case contributionFreq = "contribution_freq"
+        case frequency
     }
 
 }

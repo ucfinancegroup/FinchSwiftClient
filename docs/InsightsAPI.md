@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **dismissInsight**
 ```swift
-    open class func dismissInsight(id: Int, completion: @escaping (_ data: Insight?, _ error: Error?) -> Void)
+    open class func dismissInsight(id: String, completion: @escaping (_ data: Insight?, _ error: Error?) -> Void)
 ```
 
 Dismiss an insight
@@ -20,7 +20,7 @@ Dismiss an insight
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let id = 987 // Int | Numeric ID of the Insight to dismiss
+let id = "id_example" // String | Numeric ID of the Insight to dismiss
 
 // Dismiss an insight
 InsightsAPI.dismissInsight(id: id) { (response, error) in
@@ -39,7 +39,7 @@ InsightsAPI.dismissInsight(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Int** | Numeric ID of the Insight to dismiss | 
+ **id** | **String** | Numeric ID of the Insight to dismiss | 
 
 ### Return type
 

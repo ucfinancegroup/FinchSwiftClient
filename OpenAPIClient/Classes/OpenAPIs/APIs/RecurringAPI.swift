@@ -17,7 +17,7 @@ open class RecurringAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func deleteRecurring(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
+    open class func deleteRecurring(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
         deleteRecurringWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -37,7 +37,7 @@ open class RecurringAPI {
      - parameter id: (path) Numeric ID of the Recurring to delete 
      - returns: RequestBuilder<Recurring> 
      */
-    open class func deleteRecurringWithRequestBuilder(id: Int) -> RequestBuilder<Recurring> {
+    open class func deleteRecurringWithRequestBuilder(id: String) -> RequestBuilder<Recurring> {
         var path = "/recurring/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -59,7 +59,7 @@ open class RecurringAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getRecurring(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
+    open class func getRecurring(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
         getRecurringWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -79,7 +79,7 @@ open class RecurringAPI {
      - parameter id: (path) Numeric ID of the Recurring to get 
      - returns: RequestBuilder<Recurring> 
      */
-    open class func getRecurringWithRequestBuilder(id: Int) -> RequestBuilder<Recurring> {
+    open class func getRecurringWithRequestBuilder(id: String) -> RequestBuilder<Recurring> {
         var path = "/recurring/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -90,6 +90,43 @@ open class RecurringAPI {
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Recurring>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Get example Recurrings
+     
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getRecurringExamples(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [RecurringNewPayload]?,_ error: Error?) -> Void)) {
+        getRecurringExamplesWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get example Recurrings
+     - GET /recurring/examples
+     - API Key:
+       - type: apiKey finch-sid 
+       - name: sidCookie
+     - returns: RequestBuilder<[RecurringNewPayload]> 
+     */
+    open class func getRecurringExamplesWithRequestBuilder() -> RequestBuilder<[RecurringNewPayload]> {
+        let path = "/recurring/examples"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<[RecurringNewPayload]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -174,11 +211,12 @@ open class RecurringAPI {
      Update one specific recurring by id
      
      - parameter id: (path) Numeric ID of the Recurring to update 
+     - parameter recurringNewPayload: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updateRecurring(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
-        updateRecurringWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
+    open class func updateRecurring(id: String, recurringNewPayload: RecurringNewPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Recurring?,_ error: Error?) -> Void)) {
+        updateRecurringWithRequestBuilder(id: id, recurringNewPayload: recurringNewPayload).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -195,21 +233,22 @@ open class RecurringAPI {
        - type: apiKey finch-sid 
        - name: sidCookie
      - parameter id: (path) Numeric ID of the Recurring to update 
+     - parameter recurringNewPayload: (body)  
      - returns: RequestBuilder<Recurring> 
      */
-    open class func updateRecurringWithRequestBuilder(id: Int) -> RequestBuilder<Recurring> {
+    open class func updateRecurringWithRequestBuilder(id: String, recurringNewPayload: RecurringNewPayload) -> RequestBuilder<Recurring> {
         var path = "/recurring/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
         let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: recurringNewPayload)
+
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Recurring>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
 }

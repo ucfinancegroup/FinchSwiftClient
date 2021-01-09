@@ -35,6 +35,7 @@ Class | Method | HTTP request | Description
 *LeaderboardAPI* | [**getLeaderboard**](docs/LeaderboardAPI.md#getleaderboard) | **GET** /leaderboard/{type} | Get a leaderboard
 *PlaidAPI* | [**plaidLink**](docs/PlaidAPI.md#plaidlink) | **POST** /plaid/link_token | to request link token for PlaidLink
 *PlaidAPI* | [**plaidLinkAccess**](docs/PlaidAPI.md#plaidlinkaccess) | **POST** /plaid/public_token_exchange | For after a user does PlaidLink thru client
+*PlaidAPI* | [**plaidWebhook**](docs/PlaidAPI.md#plaidwebhook) | **POST** /plaid/webhook | Where Plaid sends updates about items, transactions, etc https://plaid.com/docs/api/webhooks/
 *PlanAPI* | [**deletePlan**](docs/PlanAPI.md#deleteplan) | **DELETE** /plan/{id} | Delete one specific plan by id
 *PlanAPI* | [**getPlan**](docs/PlanAPI.md#getplan) | **GET** /plan/{id} | Get one specific plan by id
 *PlanAPI* | [**getPlans**](docs/PlanAPI.md#getplans) | **GET** /plans | Get all of a user&#39;s plans
@@ -42,9 +43,11 @@ Class | Method | HTTP request | Description
 *PlanAPI* | [**updatePlan**](docs/PlanAPI.md#updateplan) | **PUT** /plan/{id} | Update one specific plan by id
 *RecurringAPI* | [**deleteRecurring**](docs/RecurringAPI.md#deleterecurring) | **DELETE** /recurring/{id} | Delete one specific recurring by id
 *RecurringAPI* | [**getRecurring**](docs/RecurringAPI.md#getrecurring) | **GET** /recurring/{id} | Get one specific recurring by id
+*RecurringAPI* | [**getRecurringExamples**](docs/RecurringAPI.md#getrecurringexamples) | **GET** /recurring/examples | Get example Recurrings
 *RecurringAPI* | [**getRecurrings**](docs/RecurringAPI.md#getrecurrings) | **GET** /recurrings | Get all of a user&#39;s recurrings
 *RecurringAPI* | [**newRecurring**](docs/RecurringAPI.md#newrecurring) | **POST** /recurring/new | Creates a new recurring for the user
 *RecurringAPI* | [**updateRecurring**](docs/RecurringAPI.md#updaterecurring) | **PUT** /recurring/{id} | Update one specific recurring by id
+*SnapshotsAPI* | [**getSnapshots**](docs/SnapshotsAPI.md#getsnapshots) | **GET** /snapshots | Get all a user&#39;s snapshots
 *TimeseriesAPI* | [**getTimeseries**](docs/TimeseriesAPI.md#gettimeseries) | **GET** /timeseries | Get a user&#39;s projection timeseries
 *UserAPI* | [**loginUser**](docs/UserAPI.md#loginuser) | **POST** /login | Log in a user
 *UserAPI* | [**signupUser**](docs/UserAPI.md#signupuser) | **POST** /signup | Sign up a user
@@ -68,6 +71,7 @@ Class | Method | HTTP request | Description
  - [LeaderboardResponse](docs/LeaderboardResponse.md)
  - [LinkTokenCreateResponse](docs/LinkTokenCreateResponse.md)
  - [LoginPayload](docs/LoginPayload.md)
+ - [MongoObjectID](docs/MongoObjectID.md)
  - [PlaidJWT](docs/PlaidJWT.md)
  - [Plan](docs/Plan.md)
  - [PlanNewPayload](docs/PlanNewPayload.md)
