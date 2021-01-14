@@ -27,6 +27,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *GoalAPI* | [**deleteGoal**](docs/GoalAPI.md#deletegoal) | **DELETE** /goal/{id} | Delete one specific goal by id
 *GoalAPI* | [**getGoal**](docs/GoalAPI.md#getgoal) | **GET** /goal/{id} | Get one specific goal by id
+*GoalAPI* | [**getGoalExamples**](docs/GoalAPI.md#getgoalexamples) | **GET** /goal/examples | Get example Goals
 *GoalAPI* | [**getGoals**](docs/GoalAPI.md#getgoals) | **GET** /goals | Get all of a user&#39;s goals
 *GoalAPI* | [**newGoal**](docs/GoalAPI.md#newgoal) | **POST** /goal/new | Creates a new goal for the user
 *GoalAPI* | [**updateGoal**](docs/GoalAPI.md#updategoal) | **PUT** /goal/{id} | Update one specific goal by id
@@ -35,6 +36,7 @@ Class | Method | HTTP request | Description
 *LeaderboardAPI* | [**getLeaderboard**](docs/LeaderboardAPI.md#getleaderboard) | **GET** /leaderboard/{type} | Get a leaderboard
 *PlaidAPI* | [**plaidLink**](docs/PlaidAPI.md#plaidlink) | **POST** /plaid/link_token | to request link token for PlaidLink
 *PlaidAPI* | [**plaidLinkAccess**](docs/PlaidAPI.md#plaidlinkaccess) | **POST** /plaid/public_token_exchange | For after a user does PlaidLink thru client
+*PlaidAPI* | [**plaidWebhook**](docs/PlaidAPI.md#plaidwebhook) | **POST** /plaid/webhook | Where Plaid sends updates about items, transactions, etc https://plaid.com/docs/api/webhooks/
 *PlanAPI* | [**deletePlan**](docs/PlanAPI.md#deleteplan) | **DELETE** /plan/{id} | Delete one specific plan by id
 *PlanAPI* | [**getPlan**](docs/PlanAPI.md#getplan) | **GET** /plan/{id} | Get one specific plan by id
 *PlanAPI* | [**getPlans**](docs/PlanAPI.md#getplans) | **GET** /plans | Get all of a user&#39;s plans
@@ -46,6 +48,7 @@ Class | Method | HTTP request | Description
 *RecurringAPI* | [**getRecurrings**](docs/RecurringAPI.md#getrecurrings) | **GET** /recurrings | Get all of a user&#39;s recurrings
 *RecurringAPI* | [**newRecurring**](docs/RecurringAPI.md#newrecurring) | **POST** /recurring/new | Creates a new recurring for the user
 *RecurringAPI* | [**updateRecurring**](docs/RecurringAPI.md#updaterecurring) | **PUT** /recurring/{id} | Update one specific recurring by id
+*SnapshotsAPI* | [**getSnapshots**](docs/SnapshotsAPI.md#getsnapshots) | **GET** /snapshots | Get all a user&#39;s snapshots
 *TimeseriesAPI* | [**getTimeseries**](docs/TimeseriesAPI.md#gettimeseries) | **GET** /timeseries | Get a user&#39;s projection timeseries
 *UserAPI* | [**loginUser**](docs/UserAPI.md#loginuser) | **POST** /login | Log in a user
 *UserAPI* | [**signupUser**](docs/UserAPI.md#signupuser) | **POST** /signup | Sign up a user
@@ -62,6 +65,8 @@ Class | Method | HTTP request | Description
  - [AssetToPercentMapping](docs/AssetToPercentMapping.md)
  - [Event](docs/Event.md)
  - [Goal](docs/Goal.md)
+ - [GoalAndStatus](docs/GoalAndStatus.md)
+ - [GoalMetric](docs/GoalMetric.md)
  - [GoalNewPayload](docs/GoalNewPayload.md)
  - [Insight](docs/Insight.md)
  - [ItemIdResponse](docs/ItemIdResponse.md)
@@ -69,6 +74,7 @@ Class | Method | HTTP request | Description
  - [LeaderboardResponse](docs/LeaderboardResponse.md)
  - [LinkTokenCreateResponse](docs/LinkTokenCreateResponse.md)
  - [LoginPayload](docs/LoginPayload.md)
+ - [Money](docs/Money.md)
  - [MongoObjectID](docs/MongoObjectID.md)
  - [PlaidJWT](docs/PlaidJWT.md)
  - [Plan](docs/Plan.md)
@@ -77,6 +83,7 @@ Class | Method | HTTP request | Description
  - [Recurring](docs/Recurring.md)
  - [RecurringNewPayload](docs/RecurringNewPayload.md)
  - [SignupPayload](docs/SignupPayload.md)
+ - [Snapshot](docs/Snapshot.md)
  - [TimeInterval](docs/TimeInterval.md)
  - [TimePeriod](docs/TimePeriod.md)
  - [TimeSeries](docs/TimeSeries.md)

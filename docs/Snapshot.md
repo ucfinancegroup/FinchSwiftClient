@@ -1,13 +1,13 @@
-# GoalNewPayload
+# Snapshot
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**start** | **Int64** |  | 
-**end** | **Int64** |  | 
-**threshold** | **Double** |  | 
-**metric** | [**GoalMetric**](GoalMetric.md) |  | 
+**netWorth** | [**Money**](Money.md) |  | 
+**runningSavings** | [**Money**](Money.md) |  | 
+**runningSpending** | [**Money**](Money.md) |  | 
+**runningIncome** | [**Money**](Money.md) |  | 
+**snapshotTime** | **Int64** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **getSnapshots**
 ```swift
-    open class func getSnapshots(completion: @escaping (_ data: Any?, _ error: Error?) -> Void)
+    open class func getSnapshots(completion: @escaping (_ data: Snapshot?, _ error: Error?) -> Void)
 ```
 
 Get all a user's snapshots
@@ -38,7 +38,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Any**
+[**Snapshot**](Snapshot.md)
 
 ### Authorization
 

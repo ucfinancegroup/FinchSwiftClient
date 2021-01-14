@@ -11,36 +11,29 @@ import Foundation
 public struct Goal: Codable { 
 
 
-    public enum GoalSide: String, Codable, CaseIterable {
-        case above = "above"
-        case below = "below"
-    }
     public var id: MongoObjectID
     public var name: String
-    public var period: TimePeriod
+    public var start: Int64
+    public var end: Int64
     public var threshold: Double
-    public var goalSide: GoalSide
-    public var completed: Bool
-    public var feasible: Bool?
+    public var metric: GoalMetric
 
-    public init(id: MongoObjectID, name: String, period: TimePeriod, threshold: Double, goalSide: GoalSide, completed: Bool, feasible: Bool?) {
+    public init(id: MongoObjectID, name: String, start: Int64, end: Int64, threshold: Double, metric: GoalMetric) {
         self.id = id
         self.name = name
-        self.period = period
+        self.start = start
+        self.end = end
         self.threshold = threshold
-        self.goalSide = goalSide
-        self.completed = completed
-        self.feasible = feasible
+        self.metric = metric
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable { 
         case id = "_id"
         case name
-        case period
+        case start
+        case end
         case threshold
-        case goalSide = "goal_side"
-        case completed
-        case feasible
+        case metric
     }
 
 }
