@@ -4,9 +4,103 @@ All URIs are relative to *https://finchapp.eastus.cloudapp.azure.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteAccount**](PlaidAPI.md#deleteaccount) | **DELETE** /plaid/accounts/{id} | Delete account with given item_id
+[**getAccounts**](PlaidAPI.md#getaccounts) | **GET** /plaid/accounts | Get all of user&#39;s connected accounts
 [**plaidLink**](PlaidAPI.md#plaidlink) | **POST** /plaid/link_token | to request link token for PlaidLink
 [**plaidLinkAccess**](PlaidAPI.md#plaidlinkaccess) | **POST** /plaid/public_token_exchange | For after a user does PlaidLink thru client
 
+
+# **deleteAccount**
+```swift
+    open class func deleteAccount(id: String, completion: @escaping (_ data: ItemIdResponse?, _ error: Error?) -> Void)
+```
+
+Delete account with given item_id
+
+### Example 
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let id = "id_example" // String | Item ID of the account to delete
+
+// Delete account with given item_id
+PlaidAPI.deleteAccount(id: id) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String** | Item ID of the account to delete | 
+
+### Return type
+
+[**ItemIdResponse**](ItemIdResponse.md)
+
+### Authorization
+
+[sidCookie](../README.md#sidCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getAccounts**
+```swift
+    open class func getAccounts(completion: @escaping (_ data: [String:String]?, _ error: Error?) -> Void)
+```
+
+Get all of user's connected accounts
+
+### Example 
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+
+// Get all of user's connected accounts
+PlaidAPI.getAccounts() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**[String:String]**
+
+### Authorization
+
+[sidCookie](../README.md#sidCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **plaidLink**
 ```swift

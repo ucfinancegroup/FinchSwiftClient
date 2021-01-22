@@ -11,18 +11,37 @@ import Foundation
 public struct Insight: Codable { 
 
 
+    public enum InsightType: String, Codable, CaseIterable {
+        case productRecommendation = "ProductRecommendation"
+        case savings = "Savings"
+        case spending = "Spending"
+        case income = "Income"
+        case goal = "Goal"
+        case incomplete = "Incomplete"
+    }
     public var title: String
     public var description: String
-    public var logo: String?
-    public var typ: String
+    public var insightType: InsightType
     public var dismissed: Bool
+    public var generationTime: Int64
+    public var imageURL: String?
 
-    public init(title: String, description: String, logo: String?, typ: String, dismissed: Bool) {
+    public init(title: String, description: String, insightType: InsightType, dismissed: Bool, generationTime: Int64, imageURL: String?) {
         self.title = title
         self.description = description
-        self.logo = logo
-        self.typ = typ
+        self.insightType = insightType
         self.dismissed = dismissed
+        self.generationTime = generationTime
+        self.imageURL = imageURL
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable { 
+        case title
+        case description
+        case insightType = "insight_type"
+        case dismissed
+        case generationTime = "generation_time"
+        case imageURL
     }
 
 }

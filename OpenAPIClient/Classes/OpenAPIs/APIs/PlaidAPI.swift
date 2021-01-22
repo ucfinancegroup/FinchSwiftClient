@@ -11,6 +11,85 @@ import Foundation
 
 open class PlaidAPI {
     /**
+     Delete account with given item_id
+     
+     - parameter id: (path) Item ID of the account to delete 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteAccount(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ItemIdResponse?,_ error: Error?) -> Void)) {
+        deleteAccountWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Delete account with given item_id
+     - DELETE /plaid/accounts/{id}
+     - API Key:
+       - type: apiKey finch-sid 
+       - name: sidCookie
+     - parameter id: (path) Item ID of the account to delete 
+     - returns: RequestBuilder<ItemIdResponse> 
+     */
+    open class func deleteAccountWithRequestBuilder(id: String) -> RequestBuilder<ItemIdResponse> {
+        var path = "/plaid/accounts/{id}"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<ItemIdResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Get all of user's connected accounts
+     
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getAccounts(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [String:String]?,_ error: Error?) -> Void)) {
+        getAccountsWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get all of user's connected accounts
+     - GET /plaid/accounts
+     - API Key:
+       - type: apiKey finch-sid 
+       - name: sidCookie
+     - returns: RequestBuilder<[String:String]> 
+     */
+    open class func getAccountsWithRequestBuilder() -> RequestBuilder<[String:String]> {
+        let path = "/plaid/accounts"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<[String:String]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      to request link token for PlaidLink
      
      - parameter apiResponseQueue: The queue on which api response is dispatched.
