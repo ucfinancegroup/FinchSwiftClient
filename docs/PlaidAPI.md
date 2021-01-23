@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getAccounts**](PlaidAPI.md#getaccounts) | **GET** /plaid/accounts | Get all of user&#39;s connected accounts
 [**plaidLink**](PlaidAPI.md#plaidlink) | **POST** /plaid/link_token | to request link token for PlaidLink
 [**plaidLinkAccess**](PlaidAPI.md#plaidlinkaccess) | **POST** /plaid/public_token_exchange | For after a user does PlaidLink thru client
+[**plaidWebhook**](PlaidAPI.md#plaidwebhook) | **POST** /plaid/webhook | Where Plaid sends updates about items, transactions, etc https://plaid.com/docs/api/webhooks/
 
 
 # **deleteAccount**
@@ -60,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **getAccounts**
 ```swift
-    open class func getAccounts(completion: @escaping (_ data: [String:String]?, _ error: Error?) -> Void)
+    open class func getAccounts(completion: @escaping (_ data: AccountsResponse?, _ error: Error?) -> Void)
 ```
 
 Get all of user's connected accounts
@@ -89,7 +90,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**[String:String]**
+[**AccountsResponse**](AccountsResponse.md)
 
 ### Authorization
 
@@ -190,6 +191,54 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **plaidWebhook**
+```swift
+    open class func plaidWebhook(plaidVerification: PlaidJWT? = nil, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+Where Plaid sends updates about items, transactions, etc https://plaid.com/docs/api/webhooks/
+
+### Example 
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let plaidVerification = PlaidJWT(alg: "alg_example", kid: "kid_example", typ: "typ_example") // PlaidJWT |  (optional)
+
+// Where Plaid sends updates about items, transactions, etc https://plaid.com/docs/api/webhooks/
+PlaidAPI.plaidWebhook(plaidVerification: plaidVerification) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **plaidVerification** | [**PlaidJWT**](.md) |  | [optional] 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -38,6 +38,7 @@ Class | Method | HTTP request | Description
 *PlaidAPI* | [**getAccounts**](docs/PlaidAPI.md#getaccounts) | **GET** /plaid/accounts | Get all of user&#39;s connected accounts
 *PlaidAPI* | [**plaidLink**](docs/PlaidAPI.md#plaidlink) | **POST** /plaid/link_token | to request link token for PlaidLink
 *PlaidAPI* | [**plaidLinkAccess**](docs/PlaidAPI.md#plaidlinkaccess) | **POST** /plaid/public_token_exchange | For after a user does PlaidLink thru client
+*PlaidAPI* | [**plaidWebhook**](docs/PlaidAPI.md#plaidwebhook) | **POST** /plaid/webhook | Where Plaid sends updates about items, transactions, etc https://plaid.com/docs/api/webhooks/
 *PlanAPI* | [**deletePlan**](docs/PlanAPI.md#deleteplan) | **DELETE** /plan/{id} | Delete one specific plan by id
 *PlanAPI* | [**getPlan**](docs/PlanAPI.md#getplan) | **GET** /plan/{id} | Get one specific plan by id
 *PlanAPI* | [**getPlans**](docs/PlanAPI.md#getplans) | **GET** /plans | Get all of a user&#39;s plans
@@ -60,6 +61,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Account](docs/Account.md)
+ - [AccountError](docs/AccountError.md)
+ - [AccountsResponse](docs/AccountsResponse.md)
  - [Allocation](docs/Allocation.md)
  - [ApiError](docs/ApiError.md)
  - [Asset](docs/Asset.md)
