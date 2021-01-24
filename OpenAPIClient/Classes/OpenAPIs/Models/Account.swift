@@ -11,14 +11,20 @@ import Foundation
 public struct Account: Codable { 
 
 
+    public var itemId: String
+    public var name: String
     public var balance: Double
-    public var code: String
-    public var message: String
 
-    public init(balance: Double, code: String, message: String) {
+    public init(itemId: String, name: String, balance: Double) {
+        self.itemId = itemId
+        self.name = name
         self.balance = balance
-        self.code = code
-        self.message = message
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable { 
+        case itemId = "item_id"
+        case name
+        case balance
     }
 
 }
