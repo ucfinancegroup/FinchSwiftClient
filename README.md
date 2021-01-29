@@ -64,9 +64,10 @@ Class | Method | HTTP request | Description
  - [AccountError](docs/AccountError.md)
  - [AccountsResponse](docs/AccountsResponse.md)
  - [Allocation](docs/Allocation.md)
+ - [AllocationChange](docs/AllocationChange.md)
  - [ApiError](docs/ApiError.md)
  - [Asset](docs/Asset.md)
- - [AssetToPercentMapping](docs/AssetToPercentMapping.md)
+ - [AssetChange](docs/AssetChange.md)
  - [Event](docs/Event.md)
  - [Goal](docs/Goal.md)
  - [GoalAndStatus](docs/GoalAndStatus.md)
@@ -77,6 +78,7 @@ Class | Method | HTTP request | Description
  - [KnownFinancialProduct](docs/KnownFinancialProduct.md)
  - [LeaderboardResponse](docs/LeaderboardResponse.md)
  - [LinkTokenCreateResponse](docs/LinkTokenCreateResponse.md)
+ - [Location](docs/Location.md)
  - [LoginPayload](docs/LoginPayload.md)
  - [Money](docs/Money.md)
  - [MongoObjectID](docs/MongoObjectID.md)
@@ -94,7 +96,6 @@ Class | Method | HTTP request | Description
  - [Transform](docs/Transform.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [User](docs/User.md)
- - [UserLocation](docs/UserLocation.md)
  - [ValidateUserPayload](docs/ValidateUserPayload.md)
 
 

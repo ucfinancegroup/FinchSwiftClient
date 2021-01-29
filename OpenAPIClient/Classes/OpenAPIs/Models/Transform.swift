@@ -11,10 +11,10 @@ import Foundation
 public struct Transform: Codable { 
 
 
-    public var trigger: Int
-    public var change: [String:AssetToPercentMapping]
+    public var trigger: TimeInterval
+    public var change: AssetChange
 
-    public init(trigger: Int, change: [String:AssetToPercentMapping]) {
+    public init(trigger: TimeInterval, change: AssetChange) {
         self.trigger = trigger
         self.change = change
     }

@@ -16,13 +16,15 @@ public struct SignupPayload: Codable {
     public var firstName: String
     public var lastName: String
     public var income: Double
+    public var location: Location
 
-    public init(email: String, password: String, firstName: String, lastName: String, income: Double) {
+    public init(email: String, password: String, firstName: String, lastName: String, income: Double, location: Location) {
         self.email = email
         self.password = password
         self.firstName = firstName
         self.lastName = lastName
         self.income = income
+        self.location = location
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable { 
@@ -31,6 +33,7 @@ public struct SignupPayload: Codable {
         case firstName = "first_name"
         case lastName = "last_name"
         case income
+        case location
     }
 
 }

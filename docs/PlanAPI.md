@@ -163,7 +163,7 @@ Creates a new plan for the user
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let planNewPayload = PlanNewPayload(name: "name_example", recurrings: [Recurring(id: MongoObjectID(oid: "oid_example"), name: "name_example", start: 123, end: 123, principal: 123, amount: 123, interest: 123, frequency: TimeInterval(typ: "typ_example", content: 123))], allocations: [Transform(trigger: 123, change: "TODO")], events: [Event(name: "name_example", start: 123, transforms: [Transform(trigger: 123, change: "TODO")])]) // PlanNewPayload | 
+let planNewPayload = PlanNewPayload(name: "name_example", recurrings: [Recurring(id: MongoObjectID(oid: "oid_example"), name: "name_example", start: 123, end: 123, principal: 123, amount: 123, interest: 123, frequency: TimeInterval(typ: "typ_example", content: 123))], allocations: [Transform(trigger: TimeInterval(typ: "typ_example", content: 123), change: AssetChange(asset: Asset(name: "name_example", _class: "_class_example", performance: 123), change: 123))], events: [Event(name: "name_example", start: 123, transforms: [Transform(trigger: TimeInterval(typ: "typ_example", content: 123), change: AssetChange(asset: Asset(name: "name_example", _class: "_class_example", performance: 123), change: 123))])]) // PlanNewPayload | 
 
 // Creates a new plan for the user
 PlanAPI.newPlan(planNewPayload: planNewPayload) { (response, error) in

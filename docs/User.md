@@ -4,10 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** |  | 
-**location** | [**UserLocation**](UserLocation.md) |  | 
 **firstName** | **String** |  | 
 **lastName** | **String** |  | 
-**income** | **Double** |  | [optional] 
+**location** | [**Location**](Location.md) |  | 
+**income** | **Double** |  | 
 **deviceUrl** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
