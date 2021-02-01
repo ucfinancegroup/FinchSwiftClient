@@ -13,9 +13,9 @@ public struct Account: Codable {
 
     public var itemId: String
     public var name: String
-    public var balance: Int64
+    public var balance: Double
 
-    public init(itemId: String, name: String, balance: Int64) {
+    public init(itemId: String, name: String, balance: Double) {
         self.itemId = itemId
         self.name = name
         self.balance = balance
