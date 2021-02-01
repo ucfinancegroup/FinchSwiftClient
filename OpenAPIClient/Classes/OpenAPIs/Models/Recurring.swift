@@ -15,12 +15,12 @@ public struct Recurring: Codable {
     public var name: String
     public var start: Int64
     public var end: Int64
-    public var principal: Int64
-    public var amount: Int64
+    public var principal: Double
+    public var amount: Double
     public var interest: Double
     public var frequency: TimeInterval
 
-    public init(id: MongoObjectID, name: String, start: Int64, end: Int64, principal: Int64, amount: Int64, interest: Double, frequency: TimeInterval) {
+    public init(id: MongoObjectID, name: String, start: Int64, end: Int64, principal: Double, amount: Double, interest: Double, frequency: TimeInterval) {
         self.id = id
         self.name = name
         self.start = start

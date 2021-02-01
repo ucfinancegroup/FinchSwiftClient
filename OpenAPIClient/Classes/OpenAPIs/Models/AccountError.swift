@@ -12,10 +12,10 @@ public struct AccountError: Codable {
 
 
     public var itemId: String
-    public var code: Double
+    public var code: Int
     public var message: String
 
-    public init(itemId: String, code: Double, message: String) {
+    public init(itemId: String, code: Int, message: String) {
         self.itemId = itemId
         self.code = code
         self.message = message

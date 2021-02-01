@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **start** | **Int64** |  | 
 **end** | **Int64** |  | 
-**principal** | **Int64** |  | 
-**amount** | **Int64** |  | 
+**principal** | **Double** |  | 
+**amount** | **Double** |  | 
 **interest** | **Double** |  | 
 **frequency** | [**TimeInterval**](TimeInterval.md) |  | 
 

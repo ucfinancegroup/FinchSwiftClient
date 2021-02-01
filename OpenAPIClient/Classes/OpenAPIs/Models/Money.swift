@@ -11,9 +11,9 @@ import Foundation
 public struct Money: Codable { 
 
 
-    public var amount: Int64
+    public var amount: Double
 
-    public init(amount: Int64) {
+    public init(amount: Double) {
         self.amount = amount
     }
 
