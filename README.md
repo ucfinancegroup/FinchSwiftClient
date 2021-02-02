@@ -51,7 +51,9 @@ Class | Method | HTTP request | Description
 *RecurringAPI* | [**updateRecurring**](docs/RecurringAPI.md#updaterecurring) | **PUT** /recurring/{id} | Update one specific recurring by id
 *SnapshotsAPI* | [**getSnapshots**](docs/SnapshotsAPI.md#getsnapshots) | **GET** /snapshots | Get all a user&#39;s snapshots
 *TimeseriesAPI* | [**getTimeseries**](docs/TimeseriesAPI.md#gettimeseries) | **GET** /timeseries | Get a user&#39;s projection timeseries
+*TimeseriesAPI* | [**getTimeseriesExample**](docs/TimeseriesAPI.md#gettimeseriesexample) | **GET** /timeseries/example | Get an example timeseries
 *UserAPI* | [**loginUser**](docs/UserAPI.md#loginuser) | **POST** /login | Log in a user
+*UserAPI* | [**logoutUser**](docs/UserAPI.md#logoutuser) | **POST** /logout | Log out a user
 *UserAPI* | [**signupUser**](docs/UserAPI.md#signupuser) | **POST** /signup | Sign up a user
 *UsersAPI* | [**registerIOSDevice**](docs/UsersAPI.md#registeriosdevice) | **POST** /registerIOSDevice | This route will be called once a user logs in on an iOS device and route body will contain the URL of the iOS device, this will be stored in the User model.
 *UsersAPI* | [**updateUser**](docs/UsersAPI.md#updateuser) | **PUT** /update/user | This route receives a payload with requests to change data of a user
@@ -92,7 +94,7 @@ Class | Method | HTTP request | Description
  - [Snapshot](docs/Snapshot.md)
  - [TimeInterval](docs/TimeInterval.md)
  - [TimePeriod](docs/TimePeriod.md)
- - [TimeSeries](docs/TimeSeries.md)
+ - [TimeSeriesEntry](docs/TimeSeriesEntry.md)
  - [Transform](docs/Transform.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [User](docs/User.md)

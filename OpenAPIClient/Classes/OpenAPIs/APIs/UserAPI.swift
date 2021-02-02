@@ -48,6 +48,40 @@ open class UserAPI {
     }
 
     /**
+     Log out a user
+     
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func logoutUser(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        logoutUserWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Log out a user
+     - POST /logout
+     - returns: RequestBuilder<Void> 
+     */
+    open class func logoutUserWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/logout"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Sign up a user
      
      - parameter signupPayload: (body)  

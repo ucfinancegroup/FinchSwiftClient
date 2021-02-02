@@ -5,6 +5,7 @@ All URIs are relative to *https://finchapp.eastus.cloudapp.azure.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**loginUser**](UserAPI.md#loginuser) | **POST** /login | Log in a user
+[**logoutUser**](UserAPI.md#logoutuser) | **POST** /logout | Log out a user
 [**signupUser**](UserAPI.md#signupuser) | **POST** /signup | Sign up a user
 
 
@@ -52,6 +53,50 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **logoutUser**
+```swift
+    open class func logoutUser(completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+Log out a user
+
+### Example 
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+
+// Log out a user
+UserAPI.logoutUser() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
