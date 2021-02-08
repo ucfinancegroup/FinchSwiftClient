@@ -53,6 +53,43 @@ open class InsightsAPI {
     }
 
     /**
+     Get example insights
+     
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getInsightExamples(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Insight]?,_ error: Error?) -> Void)) {
+        getInsightExamplesWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get example insights
+     - GET /insights/examples
+     - API Key:
+       - type: apiKey finch-sid 
+       - name: sidCookie
+     - returns: RequestBuilder<[Insight]> 
+     */
+    open class func getInsightExamplesWithRequestBuilder() -> RequestBuilder<[Insight]> {
+        let path = "/insights/examples"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<[Insight]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Get all a user's (non-dismissed) insights
      
      - parameter apiResponseQueue: The queue on which api response is dispatched.

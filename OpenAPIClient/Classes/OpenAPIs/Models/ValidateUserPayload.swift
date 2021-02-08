@@ -11,15 +11,16 @@ import Foundation
 public struct ValidateUserPayload: Codable { 
 
 
-    public enum Typ: String, Codable, CaseIterable {
-        case email = "email"
-        case password = "password"
+    public enum Field: String, Codable, CaseIterable {
+        case email = "Email"
+        case password = "Password"
+        case birthday = "Birthday"
     }
-    public var typ: Typ
+    public var field: Field
     public var content: String
 
-    public init(typ: Typ, content: String) {
-        self.typ = typ
+    public init(field: Field, content: String) {
+        self.field = field
         self.content = content
     }
 

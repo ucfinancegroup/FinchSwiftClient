@@ -32,6 +32,7 @@ Class | Method | HTTP request | Description
 *GoalAPI* | [**newGoal**](docs/GoalAPI.md#newgoal) | **POST** /goal/new | Creates a new goal for the user
 *GoalAPI* | [**updateGoal**](docs/GoalAPI.md#updategoal) | **PUT** /goal/{id} | Update one specific goal by id
 *InsightsAPI* | [**dismissInsight**](docs/InsightsAPI.md#dismissinsight) | **PUT** /insight/{id}/dismiss | Dismiss an insight
+*InsightsAPI* | [**getInsightExamples**](docs/InsightsAPI.md#getinsightexamples) | **GET** /insights/examples | Get example insights
 *InsightsAPI* | [**getInsights**](docs/InsightsAPI.md#getinsights) | **GET** /insights | Get all a user&#39;s (non-dismissed) insights
 *LeaderboardAPI* | [**getLeaderboard**](docs/LeaderboardAPI.md#getleaderboard) | **GET** /leaderboard/{type} | Get a leaderboard
 *PlaidAPI* | [**deleteAccount**](docs/PlaidAPI.md#deleteaccount) | **DELETE** /plaid/accounts/{id} | Delete account with given item_id

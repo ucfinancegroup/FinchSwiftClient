@@ -19,7 +19,7 @@ This route lets our clients perform step-by-step signups.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let validateUserPayload = ValidateUserPayload(typ: "typ_example", content: "content_example") // ValidateUserPayload | 
+let validateUserPayload = ValidateUserPayload(field: "field_example", content: "content_example") // ValidateUserPayload | 
 
 // This route lets our clients perform step-by-step signups.
 ValidationAPI.validateUser(validateUserPayload: validateUserPayload) { (response, error) in
