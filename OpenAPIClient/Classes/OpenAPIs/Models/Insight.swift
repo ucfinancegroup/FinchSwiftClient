@@ -19,6 +19,7 @@ public struct Insight: Codable {
         case goal = "Goal"
         case incomplete = "Incomplete"
     }
+    public var id: MongoObjectID
     public var title: String
     public var description: String
     public var insightType: InsightType
@@ -26,7 +27,8 @@ public struct Insight: Codable {
     public var generationTime: Int64
     public var imageURL: String?
 
-    public init(title: String, description: String, insightType: InsightType, dismissed: Bool, generationTime: Int64, imageURL: String?) {
+    public init(id: MongoObjectID, title: String, description: String, insightType: InsightType, dismissed: Bool, generationTime: Int64, imageURL: String?) {
+        self.id = id
         self.title = title
         self.description = description
         self.insightType = insightType
@@ -36,6 +38,7 @@ public struct Insight: Codable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable { 
+        case id = "_id"
         case title
         case description
         case insightType = "insight_type"

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **getTimeseries**
 ```swift
-    open class func getTimeseries(completion: @escaping (_ data: [TimeSeriesEntry]?, _ error: Error?) -> Void)
+    open class func getTimeseries(completion: @escaping (_ data: TimeSeriesResponse?, _ error: Error?) -> Void)
 ```
 
 Get a user's projection timeseries
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**[TimeSeriesEntry]**](TimeSeriesEntry.md)
+[**TimeSeriesResponse**](TimeSeriesResponse.md)
 
 ### Authorization
 
@@ -54,7 +54,7 @@ This endpoint does not need any parameter.
 
 # **getTimeseriesExample**
 ```swift
-    open class func getTimeseriesExample(completion: @escaping (_ data: [TimeSeriesEntry]?, _ error: Error?) -> Void)
+    open class func getTimeseriesExample(completion: @escaping (_ data: TimeSeriesResponse?, _ error: Error?) -> Void)
 ```
 
 Get an example timeseries
@@ -83,7 +83,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**[TimeSeriesEntry]**](TimeSeriesEntry.md)
+[**TimeSeriesResponse**](TimeSeriesResponse.md)
 
 ### Authorization
 

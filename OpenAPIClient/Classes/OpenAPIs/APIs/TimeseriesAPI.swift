@@ -16,7 +16,7 @@ open class TimeseriesAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getTimeseries(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [TimeSeriesEntry]?,_ error: Error?) -> Void)) {
+    open class func getTimeseries(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: TimeSeriesResponse?,_ error: Error?) -> Void)) {
         getTimeseriesWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -33,16 +33,16 @@ open class TimeseriesAPI {
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
-     - returns: RequestBuilder<[TimeSeriesEntry]> 
+     - returns: RequestBuilder<TimeSeriesResponse> 
      */
-    open class func getTimeseriesWithRequestBuilder() -> RequestBuilder<[TimeSeriesEntry]> {
+    open class func getTimeseriesWithRequestBuilder() -> RequestBuilder<TimeSeriesResponse> {
         let path = "/timeseries"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<[TimeSeriesEntry]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<TimeSeriesResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -53,7 +53,7 @@ open class TimeseriesAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getTimeseriesExample(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [TimeSeriesEntry]?,_ error: Error?) -> Void)) {
+    open class func getTimeseriesExample(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: TimeSeriesResponse?,_ error: Error?) -> Void)) {
         getTimeseriesExampleWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -70,16 +70,16 @@ open class TimeseriesAPI {
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
-     - returns: RequestBuilder<[TimeSeriesEntry]> 
+     - returns: RequestBuilder<TimeSeriesResponse> 
      */
-    open class func getTimeseriesExampleWithRequestBuilder() -> RequestBuilder<[TimeSeriesEntry]> {
+    open class func getTimeseriesExampleWithRequestBuilder() -> RequestBuilder<TimeSeriesResponse> {
         let path = "/timeseries/example"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<[TimeSeriesEntry]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<TimeSeriesResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

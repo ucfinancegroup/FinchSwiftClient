@@ -96,6 +96,7 @@ Class | Method | HTTP request | Description
  - [TimeInterval](docs/TimeInterval.md)
  - [TimePeriod](docs/TimePeriod.md)
  - [TimeSeriesEntry](docs/TimeSeriesEntry.md)
+ - [TimeSeriesResponse](docs/TimeSeriesResponse.md)
  - [Transform](docs/Transform.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [User](docs/User.md)
