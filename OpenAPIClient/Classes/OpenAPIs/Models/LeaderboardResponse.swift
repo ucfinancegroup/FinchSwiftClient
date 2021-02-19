@@ -7,21 +7,19 @@
 
 import Foundation
 
-
-public struct LeaderboardResponse: Codable { 
-
+public struct LeaderboardResponse: Codable {
 
     public var leaderboardType: String
     public var description: String?
     public var percentile: Double
 
-    public init(leaderboardType: String, description: String?, percentile: Double) {
+    public init(leaderboardType: String, description: String? = nil, percentile: Double) {
         self.leaderboardType = leaderboardType
         self.description = description
         self.percentile = percentile
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case leaderboardType = "leaderboard_type"
         case description
         case percentile

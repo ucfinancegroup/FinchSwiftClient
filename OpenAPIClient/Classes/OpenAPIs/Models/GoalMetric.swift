@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 public enum GoalMetric: String, Codable, CaseIterable {
     case savings = "Savings"
     case spending = "Spending"

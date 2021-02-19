@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct Money: Codable { 
-
+public struct Money: Codable {
 
     public var amount: Double
 

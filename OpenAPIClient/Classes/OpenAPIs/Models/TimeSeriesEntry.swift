@@ -8,8 +8,7 @@
 import Foundation
 
 /** Daily values of user&#39;s net worth */
-public struct TimeSeriesEntry: Codable { 
-
+public struct TimeSeriesEntry: Codable {
 
     public var date: Int
     public var netWorth: Money
@@ -19,7 +18,7 @@ public struct TimeSeriesEntry: Codable {
         self.netWorth = netWorth
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case date
         case netWorth = "net_worth"
     }

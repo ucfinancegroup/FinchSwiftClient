@@ -7,21 +7,19 @@
 
 import Foundation
 
-
-public struct LinkTokenCreateResponse: Codable { 
-
+public struct LinkTokenCreateResponse: Codable {
 
     public var linkToken: String
     public var expiration: String
     public var requestId: String?
 
-    public init(linkToken: String, expiration: String, requestId: String?) {
+    public init(linkToken: String, expiration: String, requestId: String? = nil) {
         self.linkToken = linkToken
         self.expiration = expiration
         self.requestId = requestId
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case linkToken = "link_token"
         case expiration
         case requestId = "request_id"

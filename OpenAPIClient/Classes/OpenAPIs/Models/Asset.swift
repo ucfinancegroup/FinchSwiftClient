@@ -7,22 +7,20 @@
 
 import Foundation
 
-
-public struct Asset: Codable { 
-
+public struct Asset: Codable {
 
     public var name: String
     public var _class: String
     /** Annualised Percentage Performance */
     public var annualizedPerformance: Double?
 
-    public init(name: String, _class: String, annualizedPerformance: Double?) {
+    public init(name: String, _class: String, annualizedPerformance: Double? = nil) {
         self.name = name
         self._class = _class
         self.annualizedPerformance = annualizedPerformance
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
         case _class = "class"
         case annualizedPerformance = "annualized_performance"

@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct GoalNewPayload: Codable { 
-
+public struct GoalNewPayload: Codable {
 
     public var name: String
     public var start: Int64

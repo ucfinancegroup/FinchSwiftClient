@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct Account: Codable { 
-
+public struct Account: Codable {
 
     public var itemId: String
     public var name: String
@@ -21,7 +19,7 @@ public struct Account: Codable {
         self.balance = balance
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case itemId = "item_id"
         case name
         case balance

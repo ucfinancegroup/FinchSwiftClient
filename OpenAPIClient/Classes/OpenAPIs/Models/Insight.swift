@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct Insight: Codable { 
-
+public struct Insight: Codable {
 
     public enum InsightType: String, Codable, CaseIterable {
         case productRecommendation = "ProductRecommendation"
@@ -27,7 +25,7 @@ public struct Insight: Codable {
     public var generationTime: Int64
     public var imageURL: String?
 
-    public init(id: MongoObjectID, title: String, description: String, insightType: InsightType, dismissed: Bool, generationTime: Int64, imageURL: String?) {
+    public init(id: MongoObjectID, title: String, description: String, insightType: InsightType, dismissed: Bool, generationTime: Int64, imageURL: String? = nil) {
         self.id = id
         self.title = title
         self.description = description
@@ -37,7 +35,7 @@ public struct Insight: Codable {
         self.imageURL = imageURL
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case id = "_id"
         case title
         case description

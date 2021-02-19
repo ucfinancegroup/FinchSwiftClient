@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct Location: Codable { 
-
+public struct Location: Codable {
 
     public var hasLocation: Bool
     public var lat: Double
@@ -21,7 +19,7 @@ public struct Location: Codable {
         self.lon = lon
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case hasLocation = "has_location"
         case lat
         case lon

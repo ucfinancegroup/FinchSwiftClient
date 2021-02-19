@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct Event: Codable { 
-
+public struct Event: Codable {
 
     public var name: String
     public var start: Int64

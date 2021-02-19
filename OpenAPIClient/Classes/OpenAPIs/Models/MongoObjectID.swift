@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct MongoObjectID: Codable { 
-
+public struct MongoObjectID: Codable {
 
     public var oid: String
 
@@ -17,7 +15,7 @@ public struct MongoObjectID: Codable {
         self.oid = oid
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case oid = "$oid"
     }
 

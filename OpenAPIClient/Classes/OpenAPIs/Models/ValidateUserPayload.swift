@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct ValidateUserPayload: Codable { 
-
+public struct ValidateUserPayload: Codable {
 
     public enum Field: String, Codable, CaseIterable {
         case email = "Email"

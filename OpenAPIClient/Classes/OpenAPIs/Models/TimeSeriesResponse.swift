@@ -8,8 +8,7 @@
 import Foundation
 
 /** Today&#39;s date, daily values of user&#39;s net worth */
-public struct TimeSeriesResponse: Codable { 
-
+public struct TimeSeriesResponse: Codable {
 
     public var start: Int
     public var series: [TimeSeriesEntry]

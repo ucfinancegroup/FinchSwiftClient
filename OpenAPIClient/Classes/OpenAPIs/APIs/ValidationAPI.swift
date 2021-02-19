@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 open class ValidationAPI {
     /**
      This route lets our clients perform step-by-step signups.
@@ -17,7 +15,7 @@ open class ValidationAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func validateUser(validateUserPayload: ValidateUserPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+    open class func validateUser(validateUserPayload: ValidateUserPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
         validateUserWithRequestBuilder(validateUserPayload: validateUserPayload).execute(apiResponseQueue) { result -> Void in
             switch result {
             case .success:
@@ -41,9 +39,15 @@ open class ValidationAPI {
 
         let url = URLComponents(string: URLString)
 
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
         let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
 }

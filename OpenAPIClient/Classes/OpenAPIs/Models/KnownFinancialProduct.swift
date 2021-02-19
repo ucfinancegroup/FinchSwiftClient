@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct KnownFinancialProduct: Codable { 
-
+public struct KnownFinancialProduct: Codable {
 
     public var name: String
     public var typ: String
@@ -23,7 +21,7 @@ public struct KnownFinancialProduct: Codable {
         self.productUrl = productUrl
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
         case typ
         case logo

@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct SignupPayload: Codable { 
-
+public struct SignupPayload: Codable {
 
     public var email: String
     public var password: String
@@ -29,7 +27,7 @@ public struct SignupPayload: Codable {
         self.birthday = birthday
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case email
         case password
         case firstName = "first_name"

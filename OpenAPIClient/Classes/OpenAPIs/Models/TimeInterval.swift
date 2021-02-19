@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct TimeInterval: Codable { 
-
+public struct TimeInterval: Codable {
 
     public enum Typ: String, Codable, CaseIterable {
         case monthly = "monthly"

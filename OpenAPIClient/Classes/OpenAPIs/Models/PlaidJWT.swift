@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct PlaidJWT: Codable { 
-
+public struct PlaidJWT: Codable {
 
     public var alg: String
     public var kid: String

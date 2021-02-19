@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct Allocation: Codable { 
-
+public struct Allocation: Codable {
 
     public var description: String
     public var date: Int

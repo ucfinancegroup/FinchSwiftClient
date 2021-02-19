@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct Snapshot: Codable { 
-
+public struct Snapshot: Codable {
 
     public var netWorth: Money
     public var runningSavings: Money
@@ -25,7 +23,7 @@ public struct Snapshot: Codable {
         self.snapshotTime = snapshotTime
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case netWorth = "net_worth"
         case runningSavings = "running_savings"
         case runningSpending = "running_spending"

@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct ItemIdResponse: Codable { 
-
+public struct ItemIdResponse: Codable {
 
     /** Item ID for newly added account */
     public var itemId: String
@@ -18,7 +16,7 @@ public struct ItemIdResponse: Codable {
         self.itemId = itemId
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case itemId = "item_id"
     }
 

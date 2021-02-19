@@ -7,21 +7,19 @@
 
 import Foundation
 
-
-public struct PublicTokenExchangeRequest: Codable { 
-
+public struct PublicTokenExchangeRequest: Codable {
 
     public var publicToken: String
     public var clientId: String?
     public var secret: String?
 
-    public init(publicToken: String, clientId: String?, secret: String?) {
+    public init(publicToken: String, clientId: String? = nil, secret: String? = nil) {
         self.publicToken = publicToken
         self.clientId = clientId
         self.secret = secret
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case publicToken = "public_token"
         case clientId = "client_id"
         case secret

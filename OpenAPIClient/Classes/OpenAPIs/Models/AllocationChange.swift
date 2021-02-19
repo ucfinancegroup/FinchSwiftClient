@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct AllocationChange: Codable { 
-
+public struct AllocationChange: Codable {
 
     public var asset: Asset
     public var change: Double

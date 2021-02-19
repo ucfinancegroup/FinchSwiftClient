@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct ApiError: Codable { 
-
+public struct ApiError: Codable {
 
     public var code: Int
     public var message: String

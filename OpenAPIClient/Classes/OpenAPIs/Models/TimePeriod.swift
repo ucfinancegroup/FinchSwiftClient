@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct TimePeriod: Codable { 
-
+public struct TimePeriod: Codable {
 
     public var start: Int
     public var end: Int

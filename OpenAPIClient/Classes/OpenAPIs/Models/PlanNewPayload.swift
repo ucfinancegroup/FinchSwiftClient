@@ -7,16 +7,14 @@
 
 import Foundation
 
-
-public struct PlanNewPayload: Codable { 
-
+public struct PlanNewPayload: Codable {
 
     public var name: String
     public var recurrings: [Recurring]?
     public var allocations: [Allocation]?
     public var events: [Event]?
 
-    public init(name: String, recurrings: [Recurring]?, allocations: [Allocation]?, events: [Event]?) {
+    public init(name: String, recurrings: [Recurring]? = nil, allocations: [Allocation]? = nil, events: [Event]? = nil) {
         self.name = name
         self.recurrings = recurrings
         self.allocations = allocations

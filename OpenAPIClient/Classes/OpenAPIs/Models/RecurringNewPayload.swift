@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct RecurringNewPayload: Codable { 
-
+public struct RecurringNewPayload: Codable {
 
     public var name: String
     public var start: Int64

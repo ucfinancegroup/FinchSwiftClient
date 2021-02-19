@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct Plan: Codable { 
-
+public struct Plan: Codable {
 
     public var id: MongoObjectID
     public var name: String
@@ -17,7 +15,7 @@ public struct Plan: Codable {
     public var allocations: [Allocation]?
     public var events: [Event]?
 
-    public init(id: MongoObjectID, name: String, recurrings: [Recurring]?, allocations: [Allocation]?, events: [Event]?) {
+    public init(id: MongoObjectID, name: String, recurrings: [Recurring]? = nil, allocations: [Allocation]? = nil, events: [Event]? = nil) {
         self.id = id
         self.name = name
         self.recurrings = recurrings
@@ -25,7 +23,7 @@ public struct Plan: Codable {
         self.events = events
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case id = "_id"
         case name
         case recurrings

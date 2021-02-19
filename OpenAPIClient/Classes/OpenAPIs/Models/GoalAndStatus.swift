@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct GoalAndStatus: Codable { 
-
+public struct GoalAndStatus: Codable {
 
     public var goal: Goal
     public var progress: Double

@@ -7,14 +7,12 @@
 
 import Foundation
 
-
-public struct Transform: Codable { 
-
+public struct Transform: Codable {
 
     public var trigger: TimeInterval
     public var changes: [AssetChange]?
 
-    public init(trigger: TimeInterval, changes: [AssetChange]?) {
+    public init(trigger: TimeInterval, changes: [AssetChange]? = nil) {
         self.trigger = trigger
         self.changes = changes
     }

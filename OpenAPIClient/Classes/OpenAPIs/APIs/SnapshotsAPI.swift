@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 open class SnapshotsAPI {
     /**
      Get all a user's snapshots
@@ -16,7 +14,7 @@ open class SnapshotsAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getSnapshots(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Snapshot?,_ error: Error?) -> Void)) {
+    open class func getSnapshots(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Snapshot?, _ error: Error?) -> Void)) {
         getSnapshotsWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -38,13 +36,19 @@ open class SnapshotsAPI {
     open class func getSnapshotsWithRequestBuilder() -> RequestBuilder<Snapshot> {
         let path = "/snapshots"
         let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters: [String: Any]? = nil
+
         let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<Snapshot>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
 }

@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct AccountsResponse: Codable { 
-
+public struct AccountsResponse: Codable {
 
     public var accounts: [Account]
     public var errors: [AccountError]

@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-public struct Recurring: Codable { 
-
+public struct Recurring: Codable {
 
     public var id: MongoObjectID
     public var name: String
@@ -31,7 +29,7 @@ public struct Recurring: Codable {
         self.frequency = frequency
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case id = "_id"
         case name
         case start

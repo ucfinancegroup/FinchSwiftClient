@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 open class LeaderboardAPI {
     /**
      * enum for parameter type
@@ -26,7 +24,7 @@ open class LeaderboardAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getLeaderboard(type: ModelType_getLeaderboard, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: LeaderboardResponse?,_ error: Error?) -> Void)) {
+    open class func getLeaderboard(type: ModelType_getLeaderboard, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: LeaderboardResponse?, _ error: Error?) -> Void)) {
         getLeaderboardWithRequestBuilder(type: type).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -52,13 +50,19 @@ open class LeaderboardAPI {
         let typePostEscape = typePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{type}", with: typePostEscape, options: .literal, range: nil)
         let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters: [String: Any]? = nil
+
         let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<LeaderboardResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
 }

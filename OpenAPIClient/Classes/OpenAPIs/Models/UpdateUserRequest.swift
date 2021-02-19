@@ -7,23 +7,21 @@
 
 import Foundation
 
-
-public struct UpdateUserRequest: Codable { 
-
+public struct UpdateUserRequest: Codable {
 
     public var password: String?
     public var firstName: String?
     public var lastName: String?
     public var income: Double?
 
-    public init(password: String?, firstName: String?, lastName: String?, income: Double?) {
+    public init(password: String? = nil, firstName: String? = nil, lastName: String? = nil, income: Double? = nil) {
         self.password = password
         self.firstName = firstName
         self.lastName = lastName
         self.income = income
     }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case password
         case firstName = "first_name"
         case lastName = "last_name"
