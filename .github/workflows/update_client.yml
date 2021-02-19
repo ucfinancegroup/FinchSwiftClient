@@ -1,8 +1,10 @@
 on: [repository_dispatch, workflow_dispatch]
 
+name: "Update FinchSwiftClient"
+
 jobs:
   update-finch-swift-client:
-    runs-on: macos-11.0
+    runs-on: macos-latest
     steps:
       # homebrew checks out the repo
       - name: Set up Homebrew
