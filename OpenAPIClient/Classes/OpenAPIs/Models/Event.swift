@@ -12,10 +12,10 @@ public struct Event: Codable {
 
 
     public var name: String
-    public var start: Int
+    public var start: Int64
     public var transforms: [Transform]
 
-    public init(name: String, start: Int, transforms: [Transform]) {
+    public init(name: String, start: Int64, transforms: [Transform]) {
         self.name = name
         self.start = start
         self.transforms = transforms

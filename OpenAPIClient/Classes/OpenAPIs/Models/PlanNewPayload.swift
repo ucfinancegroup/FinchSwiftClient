@@ -13,10 +13,10 @@ public struct PlanNewPayload: Codable {
 
     public var name: String
     public var recurrings: [Recurring]?
-    public var allocations: [Transform]?
+    public var allocations: [Allocation]?
     public var events: [Event]?
 
-    public init(name: String, recurrings: [Recurring]?, allocations: [Transform]?, events: [Event]?) {
+    public init(name: String, recurrings: [Recurring]?, allocations: [Allocation]?, events: [Event]?) {
         self.name = name
         self.recurrings = recurrings
         self.allocations = allocations

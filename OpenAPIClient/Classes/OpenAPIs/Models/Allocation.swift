@@ -13,9 +13,9 @@ public struct Allocation: Codable {
 
     public var description: String
     public var date: Int
-    public var schema: AllocationChange
+    public var schema: [AllocationChange]
 
-    public init(description: String, date: Int, schema: AllocationChange) {
+    public init(description: String, date: Int, schema: [AllocationChange]) {
         self.description = description
         self.date = date
         self.schema = schema

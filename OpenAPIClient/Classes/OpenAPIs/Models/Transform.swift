@@ -12,11 +12,11 @@ public struct Transform: Codable {
 
 
     public var trigger: TimeInterval
-    public var change: AssetChange
+    public var changes: [AssetChange]?
 
-    public init(trigger: TimeInterval, change: AssetChange) {
+    public init(trigger: TimeInterval, changes: [AssetChange]?) {
         self.trigger = trigger
-        self.change = change
+        self.changes = changes
     }
 
 }

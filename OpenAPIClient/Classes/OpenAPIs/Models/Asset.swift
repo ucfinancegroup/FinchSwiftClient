@@ -14,18 +14,18 @@ public struct Asset: Codable {
     public var name: String
     public var _class: String
     /** Annualised Percentage Performance */
-    public var performance: Double
+    public var annualizedPerformance: Double?
 
-    public init(name: String, _class: String, performance: Double) {
+    public init(name: String, _class: String, annualizedPerformance: Double?) {
         self.name = name
         self._class = _class
-        self.performance = performance
+        self.annualizedPerformance = annualizedPerformance
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable { 
         case name
         case _class = "class"
-        case performance
+        case annualizedPerformance = "annualized_performance"
     }
 
 }

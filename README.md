@@ -51,8 +51,9 @@ Class | Method | HTTP request | Description
 *RecurringAPI* | [**newRecurring**](docs/RecurringAPI.md#newrecurring) | **POST** /recurring/new | Creates a new recurring for the user
 *RecurringAPI* | [**updateRecurring**](docs/RecurringAPI.md#updaterecurring) | **PUT** /recurring/{id} | Update one specific recurring by id
 *SnapshotsAPI* | [**getSnapshots**](docs/SnapshotsAPI.md#getsnapshots) | **GET** /snapshots | Get all a user&#39;s snapshots
-*TimeseriesAPI* | [**getTimeseries**](docs/TimeseriesAPI.md#gettimeseries) | **GET** /timeseries | Get a user&#39;s projection timeseries
+*TimeseriesAPI* | [**getTimeseries**](docs/TimeseriesAPI.md#gettimeseries) | **GET** /timeseries/{days} | Get a user&#39;s projection timeseries
 *TimeseriesAPI* | [**getTimeseriesExample**](docs/TimeseriesAPI.md#gettimeseriesexample) | **GET** /timeseries/example | Get an example timeseries
+*TimeseriesAPI* | [**getTimeseriesYear**](docs/TimeseriesAPI.md#gettimeseriesyear) | **GET** /timeseries | Get timeseries with 365 future days generated
 *UserAPI* | [**loginUser**](docs/UserAPI.md#loginuser) | **POST** /login | Log in a user
 *UserAPI* | [**logoutUser**](docs/UserAPI.md#logoutuser) | **POST** /logout | Log out a user
 *UserAPI* | [**signupUser**](docs/UserAPI.md#signupuser) | **POST** /signup | Sign up a user
