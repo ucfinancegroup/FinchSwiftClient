@@ -15,9 +15,9 @@ jobs:
         id: install-openapi-generator
         run: brew install openapi-generator
 
-      - name: Purge codegened files
-        id: purge-files
-        run: rm ./OpenAPIClient/Classes/OpenAPIs
+      # - name: Purge codegened files
+      #   id: purge-files
+      #   run: rm ./OpenAPIClient/Classes/OpenAPIs
 
       - name: Get Api Spec
         id: get-api-spec
