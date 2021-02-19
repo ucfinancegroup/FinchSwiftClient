@@ -28,6 +28,9 @@ jobs:
       - name: List files
         run: ls
 
+      - name: pwd
+        run: pwd
+
       - name: Run codegen
         id: run-codegen
         run: openapi-generator generate -i ./api.yaml -g swift5 -o ./
