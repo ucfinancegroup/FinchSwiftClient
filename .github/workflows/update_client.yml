@@ -1,10 +1,14 @@
 on: [repository_dispatch, workflow_dispatch]
 
+name: "Update FinchSwiftClient"
+
 jobs:
   update-finch-swift-client:
-    runs-on: macos-11.0
+    runs-on: macos-latest
     steps:
-      # homebrew checks out the repo
+      - name: "Checkout repo"
+        uses: actions/checkout@main
+
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -13,17 +17,20 @@ jobs:
         id: install-openapi-generator
         run: brew install openapi-generator
 
-      - name: Purge codegened files
-        id: purge-files
-        run: rm ./OpenAPIClient/Classes/OpenAPIs
+      # - name: Purge codegened files
+      #   id: purge-files
+      #   run: rm ./OpenAPIClient/Classes/OpenAPIs
 
       - name: Get Api Spec
         id: get-api-spec
-        run: "curl -H 'Authorization: token ${{ secrets.PFP_ACCESS_TOKEN }}' -H 'Accept: application/vnd.github.v4.raw' -O  -L https://api.github.com/repos/ucfinancegroup/pfp/postman/api.yaml"
+        run: "curl -H 'Authorization: token ${{ secrets.PFP_ACCESS_TOKEN }}' -H 'Accept: application/vnd.github.v4.raw' -o api.yaml -L https://api.github.com/repos/ucfinancegroup/pfp/contents/postman/api.yaml"
+
+      - name: cat file
+        run: cat api.yaml
 
       - name: Run codegen
         id: run-codegen
-        run: openapi-generator generate -i api.yaml -g swift5 -o ./
+        run: openapi-generator generate -i api.yaml -g swift5 -o ../FinchSwiftClient
 
       - name: Remove api.yaml
         id: remove-api-yaml
