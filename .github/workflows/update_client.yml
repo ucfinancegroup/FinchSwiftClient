@@ -6,7 +6,9 @@ jobs:
   update-finch-swift-client:
     runs-on: macos-latest
     steps:
-      # homebrew checks out the repo
+      - name: "Checkout repo"
+        uses: actions/checkout@main
+
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
