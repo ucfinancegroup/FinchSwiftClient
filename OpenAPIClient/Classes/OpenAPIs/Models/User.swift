@@ -14,14 +14,16 @@ public struct User: Codable {
     public var lastName: String
     public var location: Location
     public var income: Double
+    public var netWorth: Double
     public var deviceUrl: String?
 
-    public init(email: String, firstName: String, lastName: String, location: Location, income: Double, deviceUrl: String? = nil) {
+    public init(email: String, firstName: String, lastName: String, location: Location, income: Double, netWorth: Double, deviceUrl: String? = nil) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
         self.location = location
         self.income = income
+        self.netWorth = netWorth
         self.deviceUrl = deviceUrl
     }
 
@@ -31,6 +33,7 @@ public struct User: Codable {
         case lastName = "last_name"
         case location
         case income
+        case netWorth = "net_worth"
         case deviceUrl = "device_url"
     }
 

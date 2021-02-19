@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **firstName** | **String** |  | 
 **lastName** | **String** |  | 
 **income** | **Double** |  | 
+**netWorth** | **Double** |  | 
 **location** | [**Location**](Location.md) |  | 
 **birthday** | **Date** |  | 
 

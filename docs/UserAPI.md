@@ -113,7 +113,7 @@ Sign up a user
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let signupPayload = SignupPayload(email: "email_example", password: "password_example", firstName: "firstName_example", lastName: "lastName_example", income: 123, location: Location(hasLocation: false, lat: 123, lon: 123), birthday: Date()) // SignupPayload | 
+let signupPayload = SignupPayload(email: "email_example", password: "password_example", firstName: "firstName_example", lastName: "lastName_example", income: 123, netWorth: 123, location: Location(hasLocation: false, lat: 123, lon: 123), birthday: Date()) // SignupPayload | 
 
 // Sign up a user
 UserAPI.signupUser(signupPayload: signupPayload) { (response, error) in
