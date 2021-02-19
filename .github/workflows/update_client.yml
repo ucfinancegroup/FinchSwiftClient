@@ -25,11 +25,8 @@ jobs:
         id: get-api-spec
         run: "curl -H 'Authorization: token ${{ secrets.PFP_ACCESS_TOKEN }}' -H 'Accept: application/vnd.github.v4.raw' -o api.yaml -L https://api.github.com/repos/ucfinancegroup/pfp/postman/api.yaml"
 
-      - name: List files
-        run: ls
-
-      - name: pwd
-        run: pwd
+      - name: cat file
+        run: cat api.yaml
 
       - name: Run codegen
         id: run-codegen
