@@ -1,11 +1,10 @@
-# Asset
+# AssetClass
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**_class** | [**AssetClass**](AssetClass.md) |  | 
-**annualizedPerformance** | **Double** | Annualised Percentage Performance | [optional] 
+**typ** | **String** | what type of asset it is | 
+**content** | **String** | extra info, such as symbol name, used in Custom | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

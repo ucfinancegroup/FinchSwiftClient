@@ -2,6 +2,7 @@ Cartfile
 OpenAPIClient.podspec
 OpenAPIClient/Classes/OpenAPIs/APIHelper.swift
 OpenAPIClient/Classes/OpenAPIs/APIs.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/AssetClassesAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/GoalAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/InsightsAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/LeaderboardAPI.swift
@@ -27,6 +28,8 @@ OpenAPIClient/Classes/OpenAPIs/Models/AllocationChange.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ApiError.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Asset.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AssetChange.swift
+OpenAPIClient/Classes/OpenAPIs/Models/AssetClass.swift
+OpenAPIClient/Classes/OpenAPIs/Models/AssetClassAndApy.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Event.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Goal.swift
 OpenAPIClient/Classes/OpenAPIs/Models/GoalAndStatus.swift
@@ -70,6 +73,9 @@ docs/AllocationChange.md
 docs/ApiError.md
 docs/Asset.md
 docs/AssetChange.md
+docs/AssetClass.md
+docs/AssetClassAndApy.md
+docs/AssetClassesAPI.md
 docs/Event.md
 docs/Goal.md
 docs/GoalAPI.md

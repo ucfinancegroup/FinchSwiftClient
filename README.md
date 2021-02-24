@@ -25,6 +25,7 @@ All URIs are relative to *https://finchapp.eastus.cloudapp.azure.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AssetClassesAPI* | [**getAssetClasses**](docs/AssetClassesAPI.md#getassetclasses) | **GET** /asset_classes | Gets list of asset classes
 *GoalAPI* | [**deleteGoal**](docs/GoalAPI.md#deletegoal) | **DELETE** /goal/{id} | Delete one specific goal by id
 *GoalAPI* | [**getGoal**](docs/GoalAPI.md#getgoal) | **GET** /goal/{id} | Get one specific goal by id
 *GoalAPI* | [**getGoalExamples**](docs/GoalAPI.md#getgoalexamples) | **GET** /goal/examples | Get example Goals
@@ -72,6 +73,8 @@ Class | Method | HTTP request | Description
  - [ApiError](docs/ApiError.md)
  - [Asset](docs/Asset.md)
  - [AssetChange](docs/AssetChange.md)
+ - [AssetClass](docs/AssetClass.md)
+ - [AssetClassAndApy](docs/AssetClassAndApy.md)
  - [Event](docs/Event.md)
  - [Goal](docs/Goal.md)
  - [GoalAndStatus](docs/GoalAndStatus.md)

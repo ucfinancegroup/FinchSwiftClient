@@ -10,11 +10,11 @@ import Foundation
 public struct Asset: Codable {
 
     public var name: String
-    public var _class: String
+    public var _class: AssetClass
     /** Annualised Percentage Performance */
     public var annualizedPerformance: Double?
 
-    public init(name: String, _class: String, annualizedPerformance: Double? = nil) {
+    public init(name: String, _class: AssetClass, annualizedPerformance: Double? = nil) {
         self.name = name
         self._class = _class
         self.annualizedPerformance = annualizedPerformance
