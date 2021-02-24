@@ -41,10 +41,11 @@ Class | Method | HTTP request | Description
 *PlaidAPI* | [**plaidLink**](docs/PlaidAPI.md#plaidlink) | **POST** /plaid/link_token | to request link token for PlaidLink
 *PlaidAPI* | [**plaidLinkAccess**](docs/PlaidAPI.md#plaidlinkaccess) | **POST** /plaid/public_token_exchange | For after a user does PlaidLink thru client
 *PlanAPI* | [**deletePlan**](docs/PlanAPI.md#deleteplan) | **DELETE** /plan/{id} | Delete one specific plan by id
-*PlanAPI* | [**getPlan**](docs/PlanAPI.md#getplan) | **GET** /plan/{id} | Get one specific plan by id
+*PlanAPI* | [**getPlan**](docs/PlanAPI.md#getplan) | **GET** /plan | Get one specific plan and generate timeseries for 365 days
+*PlanAPI* | [**getPlanWithDays**](docs/PlanAPI.md#getplanwithdays) | **GET** /plan/{days} | Get one specific plan and generate timeseries for specified number of days
 *PlanAPI* | [**getPlans**](docs/PlanAPI.md#getplans) | **GET** /plans | Get all of a user&#39;s plans
-*PlanAPI* | [**newPlan**](docs/PlanAPI.md#newplan) | **POST** /plan/new | Creates a new plan for the user
-*PlanAPI* | [**updatePlan**](docs/PlanAPI.md#updateplan) | **PUT** /plan/{id} | Update one specific plan by id
+*PlanAPI* | [**newPlan**](docs/PlanAPI.md#newplan) | **POST** /plan/new | Creates a new plan for the user and generate timeseries for 365 days
+*PlanAPI* | [**newPlanWithDays**](docs/PlanAPI.md#newplanwithdays) | **POST** /plan/new/{days} | Creates a new plan for the user and generate timeseries for specified number of days
 *RecurringAPI* | [**deleteRecurring**](docs/RecurringAPI.md#deleterecurring) | **DELETE** /recurring/{id} | Delete one specific recurring by id
 *RecurringAPI* | [**getRecurring**](docs/RecurringAPI.md#getrecurring) | **GET** /recurring/{id} | Get one specific recurring by id
 *RecurringAPI* | [**getRecurringExamples**](docs/RecurringAPI.md#getrecurringexamples) | **GET** /recurring/examples | Get example Recurrings
@@ -92,6 +93,7 @@ Class | Method | HTTP request | Description
  - [PlaidJWT](docs/PlaidJWT.md)
  - [Plan](docs/Plan.md)
  - [PlanNewPayload](docs/PlanNewPayload.md)
+ - [PlanResponse](docs/PlanResponse.md)
  - [PublicTokenExchangeRequest](docs/PublicTokenExchangeRequest.md)
  - [Recurring](docs/Recurring.md)
  - [RecurringNewPayload](docs/RecurringNewPayload.md)

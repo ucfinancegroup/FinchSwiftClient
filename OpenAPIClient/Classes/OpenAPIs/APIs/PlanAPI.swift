@@ -57,14 +57,13 @@ open class PlanAPI {
     }
 
     /**
-     Get one specific plan by id
+     Get one specific plan and generate timeseries for 365 days
      
-     - parameter id: (path) Numeric ID of the Plan to get 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPlan(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?, _ error: Error?) -> Void)) {
-        getPlanWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
+    open class func getPlan(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlanResponse?, _ error: Error?) -> Void)) {
+        getPlanWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -75,19 +74,15 @@ open class PlanAPI {
     }
 
     /**
-     Get one specific plan by id
-     - GET /plan/{id}
+     Get one specific plan and generate timeseries for 365 days
+     - GET /plan
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
-     - parameter id: (path) Numeric ID of the Plan to get 
-     - returns: RequestBuilder<Plan> 
+     - returns: RequestBuilder<PlanResponse> 
      */
-    open class func getPlanWithRequestBuilder(id: String) -> RequestBuilder<Plan> {
-        var path = "/plan/{id}"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+    open class func getPlanWithRequestBuilder() -> RequestBuilder<PlanResponse> {
+        let path = "/plan"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String: Any]? = nil
 
@@ -99,7 +94,55 @@ open class PlanAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Plan>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PlanResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
+     Get one specific plan and generate timeseries for specified number of days
+     
+     - parameter days: (path) Number of days to generate timeseries for 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getPlanWithDays(days: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlanResponse?, _ error: Error?) -> Void)) {
+        getPlanWithDaysWithRequestBuilder(days: days).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get one specific plan and generate timeseries for specified number of days
+     - GET /plan/{days}
+     - API Key:
+       - type: apiKey finch-sid 
+       - name: sidCookie
+     - parameter days: (path) Number of days to generate timeseries for 
+     - returns: RequestBuilder<PlanResponse> 
+     */
+    open class func getPlanWithDaysWithRequestBuilder(days: Int) -> RequestBuilder<PlanResponse> {
+        var path = "/plan/{days}"
+        let daysPreEscape = "\(APIHelper.mapValueToPathItem(days))"
+        let daysPostEscape = daysPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{days}", with: daysPostEscape, options: .literal, range: nil)
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters: [String: Any]? = nil
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<PlanResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
@@ -148,13 +191,13 @@ open class PlanAPI {
     }
 
     /**
-     Creates a new plan for the user
+     Creates a new plan for the user and generate timeseries for 365 days
      
      - parameter planNewPayload: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func newPlan(planNewPayload: PlanNewPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?, _ error: Error?) -> Void)) {
+    open class func newPlan(planNewPayload: PlanNewPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlanResponse?, _ error: Error?) -> Void)) {
         newPlanWithRequestBuilder(planNewPayload: planNewPayload).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -166,15 +209,15 @@ open class PlanAPI {
     }
 
     /**
-     Creates a new plan for the user
+     Creates a new plan for the user and generate timeseries for 365 days
      - POST /plan/new
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
      - parameter planNewPayload: (body)  
-     - returns: RequestBuilder<Plan> 
+     - returns: RequestBuilder<PlanResponse> 
      */
-    open class func newPlanWithRequestBuilder(planNewPayload: PlanNewPayload) -> RequestBuilder<Plan> {
+    open class func newPlanWithRequestBuilder(planNewPayload: PlanNewPayload) -> RequestBuilder<PlanResponse> {
         let path = "/plan/new"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: planNewPayload)
@@ -187,20 +230,21 @@ open class PlanAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Plan>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PlanResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
-     Update one specific plan by id
+     Creates a new plan for the user and generate timeseries for specified number of days
      
-     - parameter id: (path) Numeric ID of the Plan to update 
+     - parameter days: (path) Number of days to generate timeseries for 
+     - parameter planNewPayload: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updatePlan(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Plan?, _ error: Error?) -> Void)) {
-        updatePlanWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
+    open class func newPlanWithDays(days: Int, planNewPayload: PlanNewPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlanResponse?, _ error: Error?) -> Void)) {
+        newPlanWithDaysWithRequestBuilder(days: days, planNewPayload: planNewPayload).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -211,21 +255,22 @@ open class PlanAPI {
     }
 
     /**
-     Update one specific plan by id
-     - PUT /plan/{id}
+     Creates a new plan for the user and generate timeseries for specified number of days
+     - POST /plan/new/{days}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
-     - parameter id: (path) Numeric ID of the Plan to update 
-     - returns: RequestBuilder<Plan> 
+     - parameter days: (path) Number of days to generate timeseries for 
+     - parameter planNewPayload: (body)  
+     - returns: RequestBuilder<PlanResponse> 
      */
-    open class func updatePlanWithRequestBuilder(id: String) -> RequestBuilder<Plan> {
-        var path = "/plan/{id}"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+    open class func newPlanWithDaysWithRequestBuilder(days: Int, planNewPayload: PlanNewPayload) -> RequestBuilder<PlanResponse> {
+        var path = "/plan/new/{days}"
+        let daysPreEscape = "\(APIHelper.mapValueToPathItem(days))"
+        let daysPostEscape = daysPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{days}", with: daysPostEscape, options: .literal, range: nil)
         let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: planNewPayload)
 
         let url = URLComponents(string: URLString)
 
@@ -235,9 +280,9 @@ open class PlanAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Plan>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PlanResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
 }
