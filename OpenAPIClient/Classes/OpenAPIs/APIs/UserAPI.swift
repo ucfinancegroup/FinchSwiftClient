@@ -9,6 +9,49 @@ import Foundation
 
 open class UserAPI {
     /**
+     Gets user info
+     
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getUser(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: User?, _ error: Error?) -> Void)) {
+        getUserWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Gets user info
+     - GET /user
+     - API Key:
+       - type: apiKey finch-sid 
+       - name: sidCookie
+     - returns: RequestBuilder<User> 
+     */
+    open class func getUserWithRequestBuilder() -> RequestBuilder<User> {
+        let path = "/user"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters: [String: Any]? = nil
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<User>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
      Log in a user
      
      - parameter loginPayload: (body)  

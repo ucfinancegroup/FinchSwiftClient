@@ -57,6 +57,7 @@ Class | Method | HTTP request | Description
 *TimeseriesAPI* | [**getTimeseries**](docs/TimeseriesAPI.md#gettimeseries) | **GET** /timeseries/{days} | Get a user&#39;s projection timeseries
 *TimeseriesAPI* | [**getTimeseriesExample**](docs/TimeseriesAPI.md#gettimeseriesexample) | **GET** /timeseries/example | Get an example timeseries
 *TimeseriesAPI* | [**getTimeseriesYear**](docs/TimeseriesAPI.md#gettimeseriesyear) | **GET** /timeseries | Get timeseries with 365 future days generated
+*UserAPI* | [**getUser**](docs/UserAPI.md#getuser) | **GET** /user | Gets user info
 *UserAPI* | [**loginUser**](docs/UserAPI.md#loginuser) | **POST** /login | Log in a user
 *UserAPI* | [**logoutUser**](docs/UserAPI.md#logoutuser) | **POST** /logout | Log out a user
 *UserAPI* | [**signupUser**](docs/UserAPI.md#signupuser) | **POST** /signup | Sign up a user
