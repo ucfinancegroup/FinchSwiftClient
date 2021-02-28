@@ -5,9 +5,10 @@ All URIs are relative to *https://finchapp.eastus.cloudapp.azure.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteAccount**](PlaidAPI.md#deleteaccount) | **DELETE** /plaid/accounts/{id} | Delete account with given item_id
-[**getAccounts**](PlaidAPI.md#getaccounts) | **GET** /plaid/accounts | Get all of user&#39;s connected accounts
+[**getAccounts**](PlaidAPI.md#getaccounts) | **GET** /plaid/accounts/{allOrUnhidden} | Get all of user&#39;s connected accounts
 [**plaidLink**](PlaidAPI.md#plaidlink) | **POST** /plaid/link_token | to request link token for PlaidLink
 [**plaidLinkAccess**](PlaidAPI.md#plaidlinkaccess) | **POST** /plaid/public_token_exchange | For after a user does PlaidLink thru client
+[**setAccountAsHidden**](PlaidAPI.md#setaccountashidden) | **PUT** /plaid/accounts/hide | Hides or unhides an account
 
 
 # **deleteAccount**
@@ -60,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **getAccounts**
 ```swift
-    open class func getAccounts(completion: @escaping (_ data: AccountsResponse?, _ error: Error?) -> Void)
+    open class func getAccounts(allOrUnhidden: AllOrUnhidden_getAccounts, completion: @escaping (_ data: AccountsResponse?, _ error: Error?) -> Void)
 ```
 
 Get all of user's connected accounts
@@ -70,9 +71,10 @@ Get all of user's connected accounts
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let allOrUnhidden = "allOrUnhidden_example" // String | Whether to return all accounts or only ones that are not hidden
 
 // Get all of user's connected accounts
-PlaidAPI.getAccounts() { (response, error) in
+PlaidAPI.getAccounts(allOrUnhidden: allOrUnhidden) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -85,7 +87,10 @@ PlaidAPI.getAccounts() { (response, error) in
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **allOrUnhidden** | **String** | Whether to return all accounts or only ones that are not hidden | 
 
 ### Return type
 
@@ -182,6 +187,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemIdResponse**](ItemIdResponse.md)
+
+### Authorization
+
+[sidCookie](../README.md#sidCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **setAccountAsHidden**
+```swift
+    open class func setAccountAsHidden(setAccountAsHiddenPayload: SetAccountAsHiddenPayload, completion: @escaping (_ data: AccountsResponse?, _ error: Error?) -> Void)
+```
+
+Hides or unhides an account
+
+### Example 
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let setAccountAsHiddenPayload = SetAccountAsHiddenPayload(itemId: "itemId_example", accountId: "accountId_example", hideOrNot: false) // SetAccountAsHiddenPayload | 
+
+// Hides or unhides an account
+PlaidAPI.setAccountAsHidden(setAccountAsHiddenPayload: setAccountAsHiddenPayload) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **setAccountAsHiddenPayload** | [**SetAccountAsHiddenPayload**](SetAccountAsHiddenPayload.md) |  | 
+
+### Return type
+
+[**AccountsResponse**](AccountsResponse.md)
 
 ### Authorization
 

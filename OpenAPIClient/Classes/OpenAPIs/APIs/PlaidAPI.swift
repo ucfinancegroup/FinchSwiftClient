@@ -57,13 +57,22 @@ open class PlaidAPI {
     }
 
     /**
+     * enum for parameter allOrUnhidden
+     */
+    public enum AllOrUnhidden_getAccounts: String, CaseIterable {
+        case all = "all"
+        case unhidden = "unhidden"
+    }
+
+    /**
      Get all of user's connected accounts
      
+     - parameter allOrUnhidden: (path) Whether to return all accounts or only ones that are not hidden 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getAccounts(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AccountsResponse?, _ error: Error?) -> Void)) {
-        getAccountsWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+    open class func getAccounts(allOrUnhidden: AllOrUnhidden_getAccounts, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AccountsResponse?, _ error: Error?) -> Void)) {
+        getAccountsWithRequestBuilder(allOrUnhidden: allOrUnhidden).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -75,14 +84,18 @@ open class PlaidAPI {
 
     /**
      Get all of user's connected accounts
-     - GET /plaid/accounts
+     - GET /plaid/accounts/{allOrUnhidden}
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
+     - parameter allOrUnhidden: (path) Whether to return all accounts or only ones that are not hidden 
      - returns: RequestBuilder<AccountsResponse> 
      */
-    open class func getAccountsWithRequestBuilder() -> RequestBuilder<AccountsResponse> {
-        let path = "/plaid/accounts"
+    open class func getAccountsWithRequestBuilder(allOrUnhidden: AllOrUnhidden_getAccounts) -> RequestBuilder<AccountsResponse> {
+        var path = "/plaid/accounts/{allOrUnhidden}"
+        let allOrUnhiddenPreEscape = "\(allOrUnhidden.rawValue)"
+        let allOrUnhiddenPostEscape = allOrUnhiddenPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{allOrUnhidden}", with: allOrUnhiddenPostEscape, options: .literal, range: nil)
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String: Any]? = nil
 
@@ -185,6 +198,51 @@ open class PlaidAPI {
         let requestBuilder: RequestBuilder<ItemIdResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
+     Hides or unhides an account
+     
+     - parameter setAccountAsHiddenPayload: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func setAccountAsHidden(setAccountAsHiddenPayload: SetAccountAsHiddenPayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AccountsResponse?, _ error: Error?) -> Void)) {
+        setAccountAsHiddenWithRequestBuilder(setAccountAsHiddenPayload: setAccountAsHiddenPayload).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Hides or unhides an account
+     - PUT /plaid/accounts/hide
+     - API Key:
+       - type: apiKey finch-sid 
+       - name: sidCookie
+     - parameter setAccountAsHiddenPayload: (body)  
+     - returns: RequestBuilder<AccountsResponse> 
+     */
+    open class func setAccountAsHiddenWithRequestBuilder(setAccountAsHiddenPayload: SetAccountAsHiddenPayload) -> RequestBuilder<AccountsResponse> {
+        let path = "/plaid/accounts/hide"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: setAccountAsHiddenPayload)
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<AccountsResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
 }

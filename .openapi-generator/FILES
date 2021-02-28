@@ -51,6 +51,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/PlanResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PublicTokenExchangeRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Recurring.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RecurringNewPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/SetAccountAsHiddenPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/SignupPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Snapshot.swift
 OpenAPIClient/Classes/OpenAPIs/Models/TimeInterval.swift
@@ -104,6 +105,7 @@ docs/PublicTokenExchangeRequest.md
 docs/Recurring.md
 docs/RecurringAPI.md
 docs/RecurringNewPayload.md
+docs/SetAccountAsHiddenPayload.md
 docs/SignupPayload.md
 docs/Snapshot.md
 docs/SnapshotsAPI.md

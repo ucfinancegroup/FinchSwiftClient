@@ -37,9 +37,10 @@ Class | Method | HTTP request | Description
 *InsightsAPI* | [**getInsights**](docs/InsightsAPI.md#getinsights) | **GET** /insights | Get all a user&#39;s (non-dismissed) insights
 *LeaderboardAPI* | [**getLeaderboard**](docs/LeaderboardAPI.md#getleaderboard) | **GET** /leaderboard/{type} | Get a leaderboard
 *PlaidAPI* | [**deleteAccount**](docs/PlaidAPI.md#deleteaccount) | **DELETE** /plaid/accounts/{id} | Delete account with given item_id
-*PlaidAPI* | [**getAccounts**](docs/PlaidAPI.md#getaccounts) | **GET** /plaid/accounts | Get all of user&#39;s connected accounts
+*PlaidAPI* | [**getAccounts**](docs/PlaidAPI.md#getaccounts) | **GET** /plaid/accounts/{allOrUnhidden} | Get all of user&#39;s connected accounts
 *PlaidAPI* | [**plaidLink**](docs/PlaidAPI.md#plaidlink) | **POST** /plaid/link_token | to request link token for PlaidLink
 *PlaidAPI* | [**plaidLinkAccess**](docs/PlaidAPI.md#plaidlinkaccess) | **POST** /plaid/public_token_exchange | For after a user does PlaidLink thru client
+*PlaidAPI* | [**setAccountAsHidden**](docs/PlaidAPI.md#setaccountashidden) | **PUT** /plaid/accounts/hide | Hides or unhides an account
 *PlanAPI* | [**deletePlan**](docs/PlanAPI.md#deleteplan) | **DELETE** /plan/{id} | Delete one specific plan by id
 *PlanAPI* | [**getPlan**](docs/PlanAPI.md#getplan) | **GET** /plan | Get one specific plan and generate timeseries for 365 days
 *PlanAPI* | [**getPlanWithDays**](docs/PlanAPI.md#getplanwithdays) | **GET** /plan/{days} | Get one specific plan and generate timeseries for specified number of days
@@ -97,6 +98,7 @@ Class | Method | HTTP request | Description
  - [PublicTokenExchangeRequest](docs/PublicTokenExchangeRequest.md)
  - [Recurring](docs/Recurring.md)
  - [RecurringNewPayload](docs/RecurringNewPayload.md)
+ - [SetAccountAsHiddenPayload](docs/SetAccountAsHiddenPayload.md)
  - [SignupPayload](docs/SignupPayload.md)
  - [Snapshot](docs/Snapshot.md)
  - [TimeInterval](docs/TimeInterval.md)
