@@ -64,7 +64,7 @@ This route receives a payload with requests to change data of a user
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let updateUserRequest = UpdateUserRequest(password: "password_example", firstName: "firstName_example", lastName: "lastName_example", income: 123) // UpdateUserRequest | 
+let updateUserRequest = UpdateUserRequest(email: "email_example", password: "password_example", firstName: "firstName_example", lastName: "lastName_example", income: 123, netWorth: 123, location: Location(hasLocation: false, lat: 123, lon: 123), birthday: Date()) // UpdateUserRequest | 
 
 // This route receives a payload with requests to change data of a user
 UsersAPI.updateUser(updateUserRequest: updateUserRequest) { (response, error) in
