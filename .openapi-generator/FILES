@@ -24,7 +24,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/Account.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AccountError.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AccountsResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Allocation.swift
-OpenAPIClient/Classes/OpenAPIs/Models/AllocationChange.swift
+OpenAPIClient/Classes/OpenAPIs/Models/AllocationProportion.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ApiError.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Asset.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AssetChange.swift
@@ -71,7 +71,7 @@ docs/Account.md
 docs/AccountError.md
 docs/AccountsResponse.md
 docs/Allocation.md
-docs/AllocationChange.md
+docs/AllocationProportion.md
 docs/ApiError.md
 docs/Asset.md
 docs/AssetChange.md

@@ -41,12 +41,15 @@ Class | Method | HTTP request | Description
 *PlaidAPI* | [**plaidLink**](docs/PlaidAPI.md#plaidlink) | **POST** /plaid/link_token | to request link token for PlaidLink
 *PlaidAPI* | [**plaidLinkAccess**](docs/PlaidAPI.md#plaidlinkaccess) | **POST** /plaid/public_token_exchange | For after a user does PlaidLink thru client
 *PlaidAPI* | [**setAccountAsHidden**](docs/PlaidAPI.md#setaccountashidden) | **PUT** /plaid/accounts/hide | Hides or unhides an account
-*PlanAPI* | [**deletePlan**](docs/PlanAPI.md#deleteplan) | **DELETE** /plan/{id} | Delete one specific plan by id
-*PlanAPI* | [**getPlan**](docs/PlanAPI.md#getplan) | **GET** /plan | Get one specific plan and generate timeseries for 365 days
-*PlanAPI* | [**getPlanWithDays**](docs/PlanAPI.md#getplanwithdays) | **GET** /plan/{days} | Get one specific plan and generate timeseries for specified number of days
-*PlanAPI* | [**getPlans**](docs/PlanAPI.md#getplans) | **GET** /plans | Get all of a user&#39;s plans
-*PlanAPI* | [**newPlan**](docs/PlanAPI.md#newplan) | **POST** /plan/new | Creates a new plan for the user and generate timeseries for 365 days
-*PlanAPI* | [**newPlanWithDays**](docs/PlanAPI.md#newplanwithdays) | **POST** /plan/new/{days} | Creates a new plan for the user and generate timeseries for specified number of days
+*PlanAPI* | [**deletePlan**](docs/PlanAPI.md#deleteplan) | **DELETE** /plan | Delete user&#39;s plan
+*PlanAPI* | [**getPlaidPlan**](docs/PlanAPI.md#getplaidplan) | **GET** /plan/plaid | Get plaid plan and generate timeseries for 365 days
+*PlanAPI* | [**getPlaidPlanWithDays**](docs/PlanAPI.md#getplaidplanwithdays) | **GET** /plan/plaid/{days} | Get plaid plan and generate timeseries for specified number of days
+*PlanAPI* | [**getPlan**](docs/PlanAPI.md#getplan) | **GET** /plan | Get plan and generate timeseries for 365 days
+*PlanAPI* | [**getPlanWithDays**](docs/PlanAPI.md#getplanwithdays) | **GET** /plan/{days} | Get plan and generate timeseries for specified number of days
+*PlanAPI* | [**newPlan**](docs/PlanAPI.md#newplan) | **POST** /plan | Creates a new plan for the user and generate timeseries for 365 days
+*PlanAPI* | [**newPlanWithDays**](docs/PlanAPI.md#newplanwithdays) | **POST** /plan/{days} | Creates a new plan for the user and generate timeseries for specified number of days
+*PlanAPI* | [**updatePlan**](docs/PlanAPI.md#updateplan) | **PUT** /plan | Update plan and generate timeseries for 365 days
+*PlanAPI* | [**updatePlanWithDays**](docs/PlanAPI.md#updateplanwithdays) | **PUT** /plan/{days} | Update plan and generate timeseries for specified number of days
 *RecurringAPI* | [**deleteRecurring**](docs/RecurringAPI.md#deleterecurring) | **DELETE** /recurring/{id} | Delete one specific recurring by id
 *RecurringAPI* | [**getRecurring**](docs/RecurringAPI.md#getrecurring) | **GET** /recurring/{id} | Get one specific recurring by id
 *RecurringAPI* | [**getRecurringExamples**](docs/RecurringAPI.md#getrecurringexamples) | **GET** /recurring/examples | Get example Recurrings
@@ -72,7 +75,7 @@ Class | Method | HTTP request | Description
  - [AccountError](docs/AccountError.md)
  - [AccountsResponse](docs/AccountsResponse.md)
  - [Allocation](docs/Allocation.md)
- - [AllocationChange](docs/AllocationChange.md)
+ - [AllocationProportion](docs/AllocationProportion.md)
  - [ApiError](docs/ApiError.md)
  - [Asset](docs/Asset.md)
  - [AssetChange](docs/AssetChange.md)
