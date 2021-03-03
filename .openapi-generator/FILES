@@ -48,6 +48,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/PlaidJWT.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Plan.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PlanNewPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PlanResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/PlanUpdatePayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PublicTokenExchangeRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Recurring.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RecurringNewPayload.swift
@@ -101,6 +102,7 @@ docs/Plan.md
 docs/PlanAPI.md
 docs/PlanNewPayload.md
 docs/PlanResponse.md
+docs/PlanUpdatePayload.md
 docs/PublicTokenExchangeRequest.md
 docs/Recurring.md
 docs/RecurringAPI.md

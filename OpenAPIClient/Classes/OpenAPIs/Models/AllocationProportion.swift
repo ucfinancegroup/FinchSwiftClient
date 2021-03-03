@@ -10,9 +10,9 @@ import Foundation
 public struct AllocationProportion: Codable {
 
     public var asset: Asset
-    public var proportion: Double?
+    public var proportion: Double
 
-    public init(asset: Asset, proportion: Double? = nil) {
+    public init(asset: Asset, proportion: Double) {
         self.asset = asset
         self.proportion = proportion
     }

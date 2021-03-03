@@ -331,11 +331,12 @@ open class PlanAPI {
     /**
      Update plan and generate timeseries for 365 days
      
+     - parameter planUpdatePayload: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updatePlan(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlanResponse?, _ error: Error?) -> Void)) {
-        updatePlanWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+    open class func updatePlan(planUpdatePayload: PlanUpdatePayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlanResponse?, _ error: Error?) -> Void)) {
+        updatePlanWithRequestBuilder(planUpdatePayload: planUpdatePayload).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -351,12 +352,13 @@ open class PlanAPI {
      - API Key:
        - type: apiKey finch-sid 
        - name: sidCookie
+     - parameter planUpdatePayload: (body)  
      - returns: RequestBuilder<PlanResponse> 
      */
-    open class func updatePlanWithRequestBuilder() -> RequestBuilder<PlanResponse> {
+    open class func updatePlanWithRequestBuilder(planUpdatePayload: PlanUpdatePayload) -> RequestBuilder<PlanResponse> {
         let path = "/plan"
         let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: planUpdatePayload)
 
         let url = URLComponents(string: URLString)
 
@@ -375,11 +377,12 @@ open class PlanAPI {
      Update plan and generate timeseries for specified number of days
      
      - parameter days: (path) Number of days to generate timeseries for 
+     - parameter planUpdatePayload: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updatePlanWithDays(days: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlanResponse?, _ error: Error?) -> Void)) {
-        updatePlanWithDaysWithRequestBuilder(days: days).execute(apiResponseQueue) { result -> Void in
+    open class func updatePlanWithDays(days: Int, planUpdatePayload: PlanUpdatePayload, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PlanResponse?, _ error: Error?) -> Void)) {
+        updatePlanWithDaysWithRequestBuilder(days: days, planUpdatePayload: planUpdatePayload).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -396,15 +399,16 @@ open class PlanAPI {
        - type: apiKey finch-sid 
        - name: sidCookie
      - parameter days: (path) Number of days to generate timeseries for 
+     - parameter planUpdatePayload: (body)  
      - returns: RequestBuilder<PlanResponse> 
      */
-    open class func updatePlanWithDaysWithRequestBuilder(days: Int) -> RequestBuilder<PlanResponse> {
+    open class func updatePlanWithDaysWithRequestBuilder(days: Int, planUpdatePayload: PlanUpdatePayload) -> RequestBuilder<PlanResponse> {
         var path = "/plan/{days}"
         let daysPreEscape = "\(APIHelper.mapValueToPathItem(days))"
         let daysPostEscape = daysPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{days}", with: daysPostEscape, options: .literal, range: nil)
         let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: planUpdatePayload)
 
         let url = URLComponents(string: URLString)
 

@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
  - [Plan](docs/Plan.md)
  - [PlanNewPayload](docs/PlanNewPayload.md)
  - [PlanResponse](docs/PlanResponse.md)
+ - [PlanUpdatePayload](docs/PlanUpdatePayload.md)
  - [PublicTokenExchangeRequest](docs/PublicTokenExchangeRequest.md)
  - [Recurring](docs/Recurring.md)
  - [RecurringNewPayload](docs/RecurringNewPayload.md)

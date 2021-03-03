@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 # **updatePlan**
 ```swift
-    open class func updatePlan(completion: @escaping (_ data: PlanResponse?, _ error: Error?) -> Void)
+    open class func updatePlan(planUpdatePayload: PlanUpdatePayload, completion: @escaping (_ data: PlanResponse?, _ error: Error?) -> Void)
 ```
 
 Update plan and generate timeseries for 365 days
@@ -353,9 +353,10 @@ Update plan and generate timeseries for 365 days
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
+let planUpdatePayload = PlanUpdatePayload(name: "name_example", recurrings: [Recurring(id: MongoObjectID(oid: "oid_example"), name: "name_example", start: 123, end: 123, principal: 123, amount: 123, interest: 123, frequency: TimeInterval(typ: "typ_example", content: 123))], allocations: [Allocation(description: "description_example", date: 123, schema: [AllocationProportion(asset: Asset(name: "name_example", _class: AssetClass(typ: "typ_example", content: "content_example"), annualizedPerformance: 123), proportion: 123)])], events: [Event(name: "name_example", start: 123, transforms: [Transform(trigger: TimeInterval(typ: "typ_example", content: 123), changes: [AssetChange(asset: Asset(name: "name_example", _class: AssetClass(typ: "typ_example", content: "content_example"), annualizedPerformance: 123), change: 123)])])]) // PlanUpdatePayload | 
 
 // Update plan and generate timeseries for 365 days
-PlanAPI.updatePlan() { (response, error) in
+PlanAPI.updatePlan(planUpdatePayload: planUpdatePayload) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -368,7 +369,10 @@ PlanAPI.updatePlan() { (response, error) in
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **planUpdatePayload** | [**PlanUpdatePayload**](PlanUpdatePayload.md) |  | 
 
 ### Return type
 
@@ -380,14 +384,14 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updatePlanWithDays**
 ```swift
-    open class func updatePlanWithDays(days: Int, completion: @escaping (_ data: PlanResponse?, _ error: Error?) -> Void)
+    open class func updatePlanWithDays(days: Int, planUpdatePayload: PlanUpdatePayload, completion: @escaping (_ data: PlanResponse?, _ error: Error?) -> Void)
 ```
 
 Update plan and generate timeseries for specified number of days
@@ -398,9 +402,10 @@ Update plan and generate timeseries for specified number of days
 import OpenAPIClient
 
 let days = 987 // Int | Number of days to generate timeseries for
+let planUpdatePayload = PlanUpdatePayload(name: "name_example", recurrings: [Recurring(id: MongoObjectID(oid: "oid_example"), name: "name_example", start: 123, end: 123, principal: 123, amount: 123, interest: 123, frequency: TimeInterval(typ: "typ_example", content: 123))], allocations: [Allocation(description: "description_example", date: 123, schema: [AllocationProportion(asset: Asset(name: "name_example", _class: AssetClass(typ: "typ_example", content: "content_example"), annualizedPerformance: 123), proportion: 123)])], events: [Event(name: "name_example", start: 123, transforms: [Transform(trigger: TimeInterval(typ: "typ_example", content: 123), changes: [AssetChange(asset: Asset(name: "name_example", _class: AssetClass(typ: "typ_example", content: "content_example"), annualizedPerformance: 123), change: 123)])])]) // PlanUpdatePayload | 
 
 // Update plan and generate timeseries for specified number of days
-PlanAPI.updatePlanWithDays(days: days) { (response, error) in
+PlanAPI.updatePlanWithDays(days: days, planUpdatePayload: planUpdatePayload) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -417,6 +422,7 @@ PlanAPI.updatePlanWithDays(days: days) { (response, error) in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **days** | **Int** | Number of days to generate timeseries for | 
+ **planUpdatePayload** | [**PlanUpdatePayload**](PlanUpdatePayload.md) |  | 
 
 ### Return type
 
@@ -428,7 +434,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
