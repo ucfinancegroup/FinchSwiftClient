@@ -11,11 +11,9 @@ public struct AssetClass: Codable {
 
     public enum Typ: String, Codable, CaseIterable {
         case cash = "Cash"
-        case derivative = "Derivative"
         case equity = "Equity"
         case etf = "Etf"
         case fixed = "Fixed"
-        case loan = "Loan"
         case mutualFund = "MutualFund"
         case other = "Other"
         case custom = "Custom"
