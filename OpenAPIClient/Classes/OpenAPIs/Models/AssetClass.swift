@@ -21,9 +21,9 @@ public struct AssetClass: Codable {
     /** what type of asset it is */
     public var typ: Typ
     /** extra info, such as symbol name, used in Custom */
-    public var content: String
+    public var content: String?
 
-    public init(typ: Typ, content: String) {
+    public init(typ: Typ, content: String? = nil) {
         self.typ = typ
         self.content = content
     }
