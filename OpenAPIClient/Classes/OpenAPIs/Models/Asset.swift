@@ -11,7 +11,6 @@ public struct Asset: Codable {
 
     public var name: String
     public var _class: AssetClass
-    /** Annualised Percentage Performance */
     public var annualizedPerformance: Double
 
     public init(name: String, _class: AssetClass, annualizedPerformance: Double) {
