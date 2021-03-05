@@ -9,14 +9,23 @@ import Foundation
 
 public struct Event: Codable {
 
+    public var id: MongoObjectID
     public var name: String
     public var start: Int64
     public var transforms: [Transform]
 
-    public init(name: String, start: Int64, transforms: [Transform]) {
+    public init(id: MongoObjectID, name: String, start: Int64, transforms: [Transform]) {
+        self.id = id
         self.name = name
         self.start = start
         self.transforms = transforms
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case id = "_id"
+        case name
+        case start
+        case transforms
     }
 
 }

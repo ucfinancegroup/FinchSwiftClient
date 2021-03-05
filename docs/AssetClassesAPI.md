@@ -1,6 +1,6 @@
 # AssetClassesAPI
 
-All URIs are relative to *https://finchapp.eastus.cloudapp.azure.com/api*
+All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

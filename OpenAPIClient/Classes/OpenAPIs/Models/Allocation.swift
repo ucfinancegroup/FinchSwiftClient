@@ -9,14 +9,23 @@ import Foundation
 
 public struct Allocation: Codable {
 
+    public var id: MongoObjectID
     public var description: String
     public var date: Int
     public var schema: [AllocationProportion]
 
-    public init(description: String, date: Int, schema: [AllocationProportion]) {
+    public init(id: MongoObjectID, description: String, date: Int, schema: [AllocationProportion]) {
+        self.id = id
         self.description = description
         self.date = date
         self.schema = schema
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case id = "_id"
+        case description
+        case date
+        case schema
     }
 
 }
