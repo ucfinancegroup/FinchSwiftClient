@@ -1,6 +1,6 @@
 # InsightsAPI
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *https://localhost:8888/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

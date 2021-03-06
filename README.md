@@ -21,7 +21,7 @@ Run `pod install`
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *https://localhost:8888/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
