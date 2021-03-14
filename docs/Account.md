@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **itemId** | **String** |  | 
+**accountId** | **String** |  | 
 **name** | **String** |  | 
 **balance** | **Double** |  | 
 
