@@ -27,9 +27,9 @@ OpenAPIClient/Classes/OpenAPIs/Models/Allocation.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AllocationProportion.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ApiError.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Asset.swift
-OpenAPIClient/Classes/OpenAPIs/Models/AssetChange.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AssetClass.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AssetClassAndApy.swift
+OpenAPIClient/Classes/OpenAPIs/Models/AssetClassChange.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Event.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Goal.swift
 OpenAPIClient/Classes/OpenAPIs/Models/GoalAndStatus.swift
@@ -59,7 +59,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/TimeInterval.swift
 OpenAPIClient/Classes/OpenAPIs/Models/TimePeriod.swift
 OpenAPIClient/Classes/OpenAPIs/Models/TimeSeriesEntry.swift
 OpenAPIClient/Classes/OpenAPIs/Models/TimeSeriesResponse.swift
-OpenAPIClient/Classes/OpenAPIs/Models/Transform.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UpdateUserRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/User.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ValidateUserPayload.swift
@@ -75,9 +74,9 @@ docs/Allocation.md
 docs/AllocationProportion.md
 docs/ApiError.md
 docs/Asset.md
-docs/AssetChange.md
 docs/AssetClass.md
 docs/AssetClassAndApy.md
+docs/AssetClassChange.md
 docs/AssetClassesAPI.md
 docs/Event.md
 docs/Goal.md
@@ -116,7 +115,6 @@ docs/TimePeriod.md
 docs/TimeSeriesEntry.md
 docs/TimeSeriesResponse.md
 docs/TimeseriesAPI.md
-docs/Transform.md
 docs/UpdateUserRequest.md
 docs/User.md
 docs/UserAPI.md
