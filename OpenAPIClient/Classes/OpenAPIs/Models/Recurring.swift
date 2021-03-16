@@ -9,7 +9,7 @@ import Foundation
 
 public struct Recurring: Codable {
 
-    public var id: MongoObjectID
+    public var id: MongoObjectID?
     public var name: String
     public var start: Int64
     public var end: Int64
@@ -18,7 +18,7 @@ public struct Recurring: Codable {
     public var interest: Double
     public var frequency: TimeInterval
 
-    public init(id: MongoObjectID, name: String, start: Int64, end: Int64, principal: Double, amount: Double, interest: Double, frequency: TimeInterval) {
+    public init(id: MongoObjectID? = nil, name: String, start: Int64, end: Int64, principal: Double, amount: Double, interest: Double, frequency: TimeInterval) {
         self.id = id
         self.name = name
         self.start = start

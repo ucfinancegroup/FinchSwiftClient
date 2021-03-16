@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**MongoObjectID**](MongoObjectID.md) |  | 
+**id** | [**MongoObjectID**](MongoObjectID.md) |  | [optional] 
 **description** | **String** |  | 
 **date** | **Int** |  | 
 **schema** | [AllocationProportion] |  | 

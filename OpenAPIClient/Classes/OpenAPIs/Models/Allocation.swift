@@ -9,12 +9,12 @@ import Foundation
 
 public struct Allocation: Codable {
 
-    public var id: MongoObjectID
+    public var id: MongoObjectID?
     public var description: String
     public var date: Int
     public var schema: [AllocationProportion]
 
-    public init(id: MongoObjectID, description: String, date: Int, schema: [AllocationProportion]) {
+    public init(id: MongoObjectID? = nil, description: String, date: Int, schema: [AllocationProportion]) {
         self.id = id
         self.description = description
         self.date = date

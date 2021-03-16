@@ -3,6 +3,7 @@ OpenAPIClient.podspec
 OpenAPIClient/Classes/OpenAPIs/APIHelper.swift
 OpenAPIClient/Classes/OpenAPIs/APIs.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/AssetClassesAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/EventAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/GoalAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/InsightsAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/LeaderboardAPI.swift
@@ -79,6 +80,7 @@ docs/AssetClassAndApy.md
 docs/AssetClassChange.md
 docs/AssetClassesAPI.md
 docs/Event.md
+docs/EventAPI.md
 docs/Goal.md
 docs/GoalAPI.md
 docs/GoalAndStatus.md
