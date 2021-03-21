@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **getLeaderboard**
 ```swift
-    open class func getLeaderboard(type: ModelType_getLeaderboard, completion: @escaping (_ data: LeaderboardResponse?, _ error: Error?) -> Void)
+    open class func getLeaderboard(type: ModelType_getLeaderboard, completion: @escaping (_ data: Ranking?, _ error: Error?) -> Void)
 ```
 
 Get a leaderboard
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LeaderboardResponse**](LeaderboardResponse.md)
+[**Ranking**](Ranking.md)
 
 ### Authorization
 
