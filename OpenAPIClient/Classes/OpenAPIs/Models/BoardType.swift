@@ -8,7 +8,7 @@
 import Foundation
 
 public enum BoardType: String, Codable, CaseIterable {
-    case savings = "savings"
-    case spending = "spending"
-    case income = "income"
+    case savings = "Savings"
+    case spending = "Spending"
+    case income = "Income"
 }
