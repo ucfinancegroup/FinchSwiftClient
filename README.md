@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
  - [AssetClass](docs/AssetClass.md)
  - [AssetClassAndApy](docs/AssetClassAndApy.md)
  - [AssetClassChange](docs/AssetClassChange.md)
+ - [BoardType](docs/BoardType.md)
  - [Event](docs/Event.md)
  - [Goal](docs/Goal.md)
  - [GoalAndStatus](docs/GoalAndStatus.md)

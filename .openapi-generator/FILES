@@ -31,6 +31,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/Asset.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AssetClass.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AssetClassAndApy.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AssetClassChange.swift
+OpenAPIClient/Classes/OpenAPIs/Models/BoardType.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Event.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Goal.swift
 OpenAPIClient/Classes/OpenAPIs/Models/GoalAndStatus.swift
@@ -79,6 +80,7 @@ docs/AssetClass.md
 docs/AssetClassAndApy.md
 docs/AssetClassChange.md
 docs/AssetClassesAPI.md
+docs/BoardType.md
 docs/Event.md
 docs/EventAPI.md
 docs/Goal.md

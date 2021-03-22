@@ -9,11 +9,11 @@ import Foundation
 
 public struct Ranking: Codable {
 
-    public var leaderboardType: String
+    public var leaderboardType: BoardType
     public var description: String?
     public var percentile: Double
 
-    public init(leaderboardType: String, description: String? = nil, percentile: Double) {
+    public init(leaderboardType: BoardType, description: String? = nil, percentile: Double) {
         self.leaderboardType = leaderboardType
         self.description = description
         self.percentile = percentile

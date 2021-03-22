@@ -9,22 +9,13 @@ import Foundation
 
 open class LeaderboardAPI {
     /**
-     * enum for parameter type
-     */
-    public enum ModelType_getLeaderboard: String, CaseIterable {
-        case savings = "savings"
-        case spending = "spending"
-        case income = "income"
-    }
-
-    /**
      Get a leaderboard
      
      - parameter type: (path) Which leaderboard to get 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getLeaderboard(type: ModelType_getLeaderboard, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Ranking?, _ error: Error?) -> Void)) {
+    open class func getLeaderboard(type: BoardType, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Ranking?, _ error: Error?) -> Void)) {
         getLeaderboardWithRequestBuilder(type: type).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -44,9 +35,9 @@ open class LeaderboardAPI {
      - parameter type: (path) Which leaderboard to get 
      - returns: RequestBuilder<Ranking> 
      */
-    open class func getLeaderboardWithRequestBuilder(type: ModelType_getLeaderboard) -> RequestBuilder<Ranking> {
+    open class func getLeaderboardWithRequestBuilder(type: BoardType) -> RequestBuilder<Ranking> {
         var path = "/leaderboard/{type}"
-        let typePreEscape = "\(type.rawValue)"
+        let typePreEscape = "\(APIHelper.mapValueToPathItem(type))"
         let typePostEscape = typePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{type}", with: typePostEscape, options: .literal, range: nil)
         let URLString = OpenAPIClientAPI.basePath + path

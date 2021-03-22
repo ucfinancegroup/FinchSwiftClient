@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **getLeaderboard**
 ```swift
-    open class func getLeaderboard(type: ModelType_getLeaderboard, completion: @escaping (_ data: Ranking?, _ error: Error?) -> Void)
+    open class func getLeaderboard(type: BoardType, completion: @escaping (_ data: Ranking?, _ error: Error?) -> Void)
 ```
 
 Get a leaderboard
@@ -19,7 +19,7 @@ Get a leaderboard
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let type = "type_example" // String | Which leaderboard to get
+let type = BoardType() // BoardType | Which leaderboard to get
 
 // Get a leaderboard
 LeaderboardAPI.getLeaderboard(type: type) { (response, error) in
@@ -38,7 +38,7 @@ LeaderboardAPI.getLeaderboard(type: type) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String** | Which leaderboard to get | 
+ **type** | [**BoardType**](.md) | Which leaderboard to get | 
 
 ### Return type
 
